@@ -6,7 +6,7 @@
 
 #include "buch.h"
 
-std::vector<Buch> loadData(std::string path);
-void saveData(std::string path, std::vector<Buch> data);
+std::vector<Buch>& loadData(const std::string path);
+void saveData(const std::string path, std::vector<Buch> &data);
 
 #endif // HELFER_H
