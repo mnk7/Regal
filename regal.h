@@ -2,6 +2,7 @@
 #define REGAL_H
 
 #include <QWidget>
+#include <QFileDialog>
 
 #include <vector>
 
@@ -17,6 +18,7 @@ public:
 
 private:
     std::vector<Buch> datenbank;
+    QString path;
 
 };
 
