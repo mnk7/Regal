@@ -5,9 +5,12 @@
 Regal::Regal(QWidget *parent)
     : QWidget(parent)
 {
-    path = QFileDialog::getOpenFileName(this, "Öffne Datenbank", "~");
+    path = QFileDialog::getOpenFileName(this, "Öffne Datenbank", "/User/mnk7/Documents/workspaces/Qt-Kurs/Regal");
     datenbank = loadData(path.toStdString());
-    std::cout << datenbank.size() << std::endl;
+
+    for(const Buch& b: datenbank) {
+        printBuch(std::cout, b);
+    }
 }
 
 Regal::~Regal()
