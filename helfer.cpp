@@ -8,41 +8,38 @@ std::vector<Buch> loadData(const std::string path) {
     std::string input;
     while(!file.eof()) {
         getline(file, input);
-        //remove tabs
-        input.erase(std::remove(input.begin(), input.end(), '\t'), input.end());
         //find starting point of book entry
-        if(auto pos = input.find('{') != input.npos) {
-            data.push_back(Buch(input.substr(0, pos - 1)));
+        auto pos = input.find('{');
+        if(pos != std::string::npos) {
+            data.push_back(Buch(input.substr(0, pos)));
         }
         //find equal sign
-        if(int pos = input.find('=') != input.npos) {
-            std::string label = input.substr(0, pos - 1);
+        pos = input.find('=');
+        if(pos != std::string::npos) {
+            std::string label = input.substr(0, pos);
             std::string value = input.substr(pos + 1, input.size());
-            //remove spaces
-            label.erase(remove_if(label.begin(), label.end(), isspace),
-                         label.end());
 
             Buch &b = data[data.size() - 1];
 
-            if(label.compare("title")) {
+            if(label == "title") {
                 b.setTitle(value);
-            } else if(label.compare("subtitle")) {
+            } else if(label == "subtitle") {
                 b.setSubtitle(value);
-            } else if(label.compare("author")) {
+            } else if(label == "author") {
                 b.setAuthor(value);
-            } else if(label.compare("genre")) {
+            } else if(label == "genre") {
                 b.setGenre(b.stringtogenre(value));
-            } else if(label.compare("pagecount")) {
+            } else if(label == "pagecount") {
                 b.setPagecount(static_cast<unsigned int>(std::stoul(value)));
-            } else if(label.compare("startread")) {
+            } else if(label == "startread") {
                 b.setStart(static_cast<unsigned int>(std::stoul(value)));
-            } else if(label.compare("endread")) {
+            } else if(label == "endread") {
                 b.setEnd(static_cast<unsigned int>(std::stoul(value)));
-            } else if(label.compare("rating")) {
+            } else if(label == "rating") {
                 b.setRating(static_cast<float>(std::stof(value)));
-            } else if(label.compare("language")) {
+            } else if(label == "language") {
                 b.setLanguage(b.stringtolanguage(value));
-            } else if(label.compare("notes")) {
+            } else if(label == "notes") {
                 b.setNotes(value);
             }
         } else {
@@ -60,19 +57,23 @@ void saveData(const std::string path, std::vector<Buch> &data) {
     file.open(path, std::ios::trunc);
 
     for(const Buch& b: data) {
-        file << b.getHandle() << "{" << std::endl;
-        file << "\t" << b.getTitle() << std::endl;
-        file << "\t" << b.getSubtitle() << std::endl;
-        file << "\t" << b.getAuthor() << std::endl;
-        file << "\t" << b.genretostring(b.getGenre()) << std::endl;
-        file << "\t" << b.getPagecount() << std::endl;
-        file << "\t" << b.getStartRead() << std::endl;
-        file << "\t" << b.getEndRead() << std::endl;
-        file << "\t" << b.getRating() << std::endl;
-        file << "\t" << b.languagetostring(b.getLanguage()) << std::endl;
-        file << "\t" << b.getNotes() << std::endl << "}" << std::endl;
+        printBuch(file, b);
     }
 
     file.flush();
     file.close();
+}
+
+void printBuch(std::ostream &os, const Buch &b) {
+    os << b.getHandle() << "{" << std::endl;
+    os << "\ttitle=" << b.getTitle() << std::endl;
+    os << "\tsubtitle=" << b.getSubtitle() << std::endl;
+    os << "\tauthor=" << b.getAuthor() << std::endl;
+    os << "\tgenre=" << b.genretostring(b.getGenre()) << std::endl;
+    os << "\tpagecount=" << b.getPagecount() << std::endl;
+    os << "\tstartread=" << b.getStartRead() << std::endl;
+    os << "\tendread=" << b.getEndRead() << std::endl;
+    os << "\trating=" << b.getRating() << std::endl;
+    os << "\tlanguage=" << b.languagetostring(b.getLanguage()) << std::endl;
+    os << "\tnotes=" << b.getNotes() << std::endl << "}" << std::endl;
 }
