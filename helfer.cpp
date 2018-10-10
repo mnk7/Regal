@@ -31,19 +31,19 @@ std::vector<Buch> loadData(const std::string path) {
             } else if(label.compare("author")) {
                 b.setAuthor(value);
             } else if(label.compare("genre")) {
-
+                b.setGenre(b.stringtogenre(value));
             } else if(label.compare("pagecount")) {
                 b.setPagecount(static_cast<unsigned int>(std::stoul(value)));
-            } else if(label.compare("startRead")) {
+            } else if(label.compare("startread")) {
                 b.setStart(static_cast<unsigned int>(std::stoul(value)));
+            } else if(label.compare("endread")) {
+                b.setEnd(static_cast<unsigned int>(std::stoul(value)));
             } else if(label.compare("rating")) {
-
+                b.setRating(static_cast<float>(std::stof(value)));
             } else if(label.compare("language")) {
-
-            } else if(label.compare("fiction")) {
-
+                b.setLanguage(b.stringtolanguage(value));
             } else if(label.compare("notes")) {
-
+                b.setNotes(value);
             }
         } else {
             continue;
@@ -58,6 +58,20 @@ std::vector<Buch> loadData(const std::string path) {
 void saveData(const std::string path, std::vector<Buch> &data) {
     std::ofstream file;
     file.open(path, std::ios::trunc);
+
+    for(const Buch& b: data) {
+        file << b.getHandle() << "{" << std::endl;
+        file << "\t" << b.getTitle() << std::endl;
+        file << "\t" << b.getSubtitle() << std::endl;
+        file << "\t" << b.getAuthor() << std::endl;
+        file << "\t" << b.genretostring(b.getGenre()) << std::endl;
+        file << "\t" << b.getPagecount() << std::endl;
+        file << "\t" << b.getStartRead() << std::endl;
+        file << "\t" << b.getEndRead() << std::endl;
+        file << "\t" << b.getRating() << std::endl;
+        file << "\t" << b.languagetostring(b.getAuthor()) << std::endl;
+        file << "\t" << b.getNotes() << std::endl << "}" << std::endl;
+    }
 
     file.flush();
     file.close();
