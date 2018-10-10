@@ -54,16 +54,19 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
         case 1:
             eingabe = new QLineEdit(this);
             eingabe->setText(QString::fromStdString(book.getTitle()));
+            connect(eingabe,&QLineEdit::textChanged,this,&Buchanzeige::changeTitle);
             layout->addWidget(eingabe,i/2,i%2);
             break;
         case 3:
             eingabe = new QLineEdit(this);
             eingabe->setText(QString::fromStdString(book.getSubtitle()));
+            connect(eingabe,&QLineEdit::textChanged,this,&Buchanzeige::changeSubtitle);
             layout->addWidget(eingabe,i/2,i%2);
             break;
         case 5:
             eingabe = new QLineEdit(this);
             eingabe->setText(QString::fromStdString(book.getAuthor()));
+            connect(eingabe,&QLineEdit::textChanged,this,&Buchanzeige::changeAuthor);
             layout->addWidget(eingabe,i/2,i%2);
             break;
         case 7:
@@ -77,11 +80,13 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
             selector->addItem("Biography");
             selector->addItem("none");
             selector->setCurrentIndex(book.getGenre());
+            connect(selector,QOverload<int>::of(&QComboBox::currentIndexChanged),this,&Buchanzeige::changeGenre);
             layout->addWidget(selector,i/2,i%2);
             break;
         case 9:
             eingabe = new QLineEdit(this);
             eingabe->setText(QString::number(book.getPagecount()));
+            connect(eingabe,&QLineEdit::textChanged,this,&Buchanzeige::changePagecount);
             layout->addWidget(eingabe,i/2,i%2);
             break;
         case 11:
@@ -99,6 +104,7 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
         case 15:
             eingabe = new QLineEdit(this);
             eingabe->setText(QString::number(book.getRating()));
+            connect(eingabe,&QLineEdit::textChanged,this,&Buchanzeige::changeRating);
             layout->addWidget(eingabe,i/2,i%2);
             break;
         case 17:
@@ -107,11 +113,13 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
             selector->addItem("German");
             selector->addItem("NA");
             selector->setCurrentIndex(book.getLanguage());
+            connect(selector,QOverload<int>::of(&QComboBox::currentIndexChanged),this,&Buchanzeige::changeLanguage);
             layout->addWidget(selector,i/2,i%2);
             break;
         case 19:
             notesIn = new QTextEdit(this);
             notesIn->setText(QString::fromStdString(book.getNotes()));
+            connect(notesIn,&QTextEdit::textChanged,this,&Buchanzeige::changeNotes);
             layout->addWidget(notesIn,i/2,i%2);
             break;
         default:

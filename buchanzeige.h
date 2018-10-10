@@ -11,6 +11,7 @@
 #include <QPushButton>
 #include <QCalendarWidget>
 #include <QDate>
+#include <QtGlobal>
 
 class Buchanzeige : public QWidget
 {
@@ -27,12 +28,12 @@ private:
     void changeSubtitle(const QString&);
     void changeAuthor(const QString&);
     void changeGenre(const int&);
-    void changePagecount(const unsigned int&);
+    void changePagecount(const QString&);
     void changeStartRead(const QDate&);
     void changeEndRead(const QDate&);
-    void changeRating(const float&);
+    void changeRating(const QString&);
     void changeLanguage(const int&);
-    void changeNotes(const QString&);
+    void changeNotes();
 };
 
 #endif // BUCHANZEIGE_H
