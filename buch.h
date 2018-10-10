@@ -7,7 +7,14 @@ class Buch
 public:
     enum GENRE {Sci-Fi, Fantasy, Literary Fiction, Thriller, Politics, Philosophy, Biography};
     enum LANGUAGE {English, German}
-    Buch();
+    Buch()=default;
+    Buch(QString h): handle(h){}
+    Buch(QString& h, QString& t, QString& s, QString& a, GENRE& g, unsigned int& p, unsigned int& sr, unsigned int& er, float& r, LANGUAGE& l):
+        handle(h), title(t), subtitle(s), author(a), pagecount(p), startRead(sr), endRead(er), rating(r){
+        genre=g;
+        language=l;
+    }
+    QString& handle() const;
     QString& title() const;
     QString& subtitle() const;
     QString& author() const;
@@ -30,17 +37,17 @@ public:
     void setNotes(QString const&);
 
 private:
-    QString const handle;
-    QString title;
-    QString subtitle;
-    QString author;
-    GENRE genre;
-    unsigned int pagecount;
-    unsigned int startRead;
-    unsigned int endRead;
-    float rating;
-    LANGUAGE language;
-    QString notes;
+    QString handle="";
+    QString title="";
+    QString subtitle="";
+    QString author="";
+    GENRE genre=Politics;
+    unsigned int pagecount=0;
+    unsigned int startRead=0;
+    unsigned int endRead=0;
+    float rating=0;
+    LANGUAGE language=English;
+    QString notes="";
 
 };
 
