@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/Bilder">
+        <file alias="Buch">Buch.png</file>
+        <file alias="Stapel">Stapel.png</file>
+    </qresource>
+    <qresource prefix="/Datenbanken">
+        <file>datenbank</file>
+    </qresource>
+</RCC>

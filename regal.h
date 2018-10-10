@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <QFileDialog>
 #include <QVBoxLayout>
+#include <QApplication>
+#include <QScreen>
 
 #include <vector>
 
