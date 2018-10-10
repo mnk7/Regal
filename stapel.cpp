@@ -5,8 +5,8 @@ Stapel::Stapel(QWidget *parent, std::vector<Buch> &d) : QWidget(parent)
     datenbank = d;
 
     buecher.resize(datenbank.size());
-    for(const Buch &b: datenbank) {
-        Buchanzeige *anzeige = new Buchanzeige(this, b);
+    for(Buch &b: datenbank) {
+        QPushButton *anzeige = new QPushButton(this);
         buecher.push_back(anzeige);
     }
 }

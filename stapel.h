@@ -2,6 +2,7 @@
 #define STAPEL_H
 
 #include <QWidget>
+#include <QPushButton>
 
 #include "buch.h"
 #include "buchanzeige.h"
@@ -15,11 +16,9 @@ public:
 
 signals:
 
-public slots:
-
 private:
     std::vector<Buch> datenbank;
-    std::vector<Buchanzeige*> buecher;
+    std::vector<QPushButton*> buecher;
 };
 
 #endif // STAPEL_H
