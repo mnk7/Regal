@@ -32,8 +32,8 @@ public:
     void setLanguage(LANGUAGE const);
     void setNotes(std::string const);
 
-    const GENRE stringtogenre(const std::string) const;
-    const LANGUAGE stringtolanguage(const std::string) const;
+    GENRE stringtogenre(const std::string);
+    LANGUAGE stringtolanguage(const std::string);
 
     const std::string genretostring(const GENRE&) const;
     const std::string languagetostring(const LANGUAGE&) const;

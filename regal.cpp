@@ -1,9 +1,13 @@
 #include "regal.h"
 
+#include <iostream>
+
 Regal::Regal(QWidget *parent)
     : QWidget(parent)
 {
-    path = QFileDialog::getOpenFileUrl(this);
+    path = QFileDialog::getOpenFileName(this, "Öffne Datenbank", "~");
+    datenbank = loadData(path.toStdString());
+    std::cout << datenbank.size() << std::endl;
 }
 
 Regal::~Regal()

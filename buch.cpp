@@ -95,7 +95,7 @@ void Buch::setNotes(const std::string x){
     notes=x;
 }
 
-const Buch::GENRE Buch::stringtogenre(const std::string x) const{
+Buch::GENRE Buch::stringtogenre(const std::string x){
     if(x=="SciFi") return SciFi;
     else if(x=="Fantasy") return Fantasy;
     else if(x=="Literary Fiction") return Literary_Fiction;
@@ -106,7 +106,7 @@ const Buch::GENRE Buch::stringtogenre(const std::string x) const{
     else return none;
 }
 
-const Buch::LANGUAGE Buch::stringtolanguage(const std::string x) const{
+Buch::LANGUAGE Buch::stringtolanguage(const std::string x){
     if(x=="English") return English;
     else if (x=="German") return German;
     else return NA;
@@ -116,28 +116,20 @@ const std::string Buch::genretostring(const GENRE &x) const{
     switch (x) {
     case SciFi:
         return "SciFi";
-        break;
     case Fantasy:
         return "Fantasy";
-        break;
     case Literary_Fiction:
         return "Literary Fiction";
-        break;
     case Thriller:
         return "Crime/Thriller";
-        break;
     case Politics:
         return "Politics";
-        break;
     case Philosophy:
         return "Philosophy";
-        break;
     case Biography:
         return "Biography";
-        break;
     default:
         return "";
-        break;
     }
 }
 
@@ -145,12 +137,9 @@ const std::string Buch::languagetostring(const LANGUAGE &x) const{
     switch (x) {
     case English:
         return "English";
-        break;
     case German:
         return "German";
-        break;
     default:
         return "";
-        break;
     }
 }

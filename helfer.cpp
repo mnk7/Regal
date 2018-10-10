@@ -15,7 +15,7 @@ std::vector<Buch> loadData(const std::string path) {
             data.push_back(Buch(input.substr(0, pos - 1)));
         }
         //find equal sign
-        if(auto pos = input.find('=') != input.npos) {
+        if(int pos = input.find('=') != input.npos) {
             std::string label = input.substr(0, pos - 1);
             std::string value = input.substr(pos + 1, input.size());
             //remove spaces
@@ -69,7 +69,7 @@ void saveData(const std::string path, std::vector<Buch> &data) {
         file << "\t" << b.getStartRead() << std::endl;
         file << "\t" << b.getEndRead() << std::endl;
         file << "\t" << b.getRating() << std::endl;
-        file << "\t" << b.languagetostring(b.getAuthor()) << std::endl;
+        file << "\t" << b.languagetostring(b.getLanguage()) << std::endl;
         file << "\t" << b.getNotes() << std::endl << "}" << std::endl;
     }
 

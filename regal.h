@@ -7,6 +7,7 @@
 #include <vector>
 
 #include "buch.h"
+#include "helfer.h"
 
 class Regal : public QWidget
 {
