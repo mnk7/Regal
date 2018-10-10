@@ -5,33 +5,38 @@
 class Buch
 {
 public:
-    enum GENRE {SciFi, Fantasy, Literary_Fiction, Thriller, Politics, Philosophy, Biography};
-    enum LANGUAGE {English, German};
+    enum GENRE {SciFi, Fantasy, Literary_Fiction, Thriller, Politics, Philosophy, Biography, none};
+    enum LANGUAGE {English, German, NA};
 //    Buch()=default;
-    Buch(std::string& h);
-    Buch(std::string& h, std::string& t, std::string& s, std::string& a, GENRE& g, unsigned int& p, unsigned int& sr, unsigned int& er, float& r, LANGUAGE& l);
-    std::string& getHandle() ;
-    std::string& getTitle() const;
-    std::string& getSubtitle() const;
-    std::string& getAuthor() const;
-    GENRE& getGenre() const;
-    unsigned int& getPagecount() const;
-    unsigned int& getStartRead() const;
-    unsigned int& getEndRead() const;
-    float& getRating() const;
-    LANGUAGE& getLanguage() const;
-    std::string& getNotes() const;
-    void setTitle(std::string const&);
-    void setSubtitle(std::string const&);
-    void setAuthor(std::string const&);
-    void setGenre(GENRE const&);
-    void setPagecount(unsigned int const&);
-    void setStart(unsigned int const&);
-    void setEnd(unsigned int const&);
-    void setRating(float const&);
-    void setLanguage(LANGUAGE const&);
-    void setNotes(std::string const&);
+    Buch(std::string h);
+    Buch(std::string h, std::string t, std::string s, std::string a, GENRE g, unsigned int p, unsigned int sr, unsigned int er, float r, LANGUAGE l);
+    const std::string& getHandle() const ;
+    const std::string& getTitle() const;
+    const std::string& getSubtitle() const;
+    const std::string& getAuthor() const;
+    const GENRE& getGenre() const;
+    const unsigned int& getPagecount() const;
+    const unsigned int& getStartRead() const;
+    const unsigned int& getEndRead() const;
+    const float& getRating() const;
+    const LANGUAGE& getLanguage() const;
+    const std::string& getNotes() const;
+    void setTitle(std::string const);
+    void setSubtitle(std::string const);
+    void setAuthor(std::string const);
+    void setGenre(GENRE const);
+    void setPagecount(unsigned int const);
+    void setStart(unsigned int const);
+    void setEnd(unsigned int const);
+    void setRating(float const);
+    void setLanguage(LANGUAGE const);
+    void setNotes(std::string const);
 
+    const GENRE stringtogenre(const std::string) const;
+    const LANGUAGE stringtolanguage(const std::string) const;
+
+    const std::string genretostring(const GENRE&) const;
+    const std::string languagetostring(const LANGUAGE&) const;
 private:
     std::string handle;
     std::string title;
