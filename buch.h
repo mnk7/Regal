@@ -5,8 +5,8 @@
 class Buch
 {
 public:
-    enum GENRE {Sci-Fi, Fantasy, Literary Fiction, Thriller, Politics, Philosophy, Biography};
-    enum LANGUAGE {English, German}
+    enum GENRE {SciFi, Fantasy, Literary_Fiction, Thriller, Politics, Philosophy, Biography};
+    enum LANGUAGE {English, German};
     Buch()=default;
     Buch(std::string h): handle(h){}
     Buch(std::string& h, std::string& t, std::string& s, std::string& a, GENRE& g, unsigned int& p, unsigned int& sr, unsigned int& er, float& r, LANGUAGE& l):
