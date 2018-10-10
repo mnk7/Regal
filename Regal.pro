@@ -26,10 +26,18 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        regal.cpp
+        regal.cpp \
+    buch.cpp \
+    stapel.cpp \
+    buchanzeige.cpp \
+    helfer.cpp
 
 HEADERS += \
-        regal.h
+        regal.h \
+    buch.h \
+    stapel.h \
+    buchanzeige.h \
+    helfer.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

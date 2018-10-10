@@ -3,6 +3,10 @@
 
 #include <QWidget>
 
+#include <vector>
+
+#include "buch.h"
+
 class Regal : public QWidget
 {
     Q_OBJECT
@@ -10,6 +14,10 @@ class Regal : public QWidget
 public:
     Regal(QWidget *parent = nullptr);
     ~Regal();
+
+private:
+    std::vector<Buch> datenbank;
+
 };
 
 #endif // REGAL_H
