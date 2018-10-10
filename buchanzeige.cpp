@@ -120,14 +120,11 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
     }
 }
 
-Buchanzeige::~Buchanzeige() {
-
-}
 
 void Buchanzeige::openCalendar() {
 
 }
 
-void Buchanzeige::changeDate(const QDate& date) {
+void Buchanzeige::changeStartRead(const QDate& date) {
 
 }
