@@ -52,7 +52,7 @@ std::vector<Buch> loadData(const std::string path) {
 }
 
 
-void saveData(const std::string path, std::vector<Buch> &data) {
+void saveData(const std::string path, const std::vector<Buch> &data) {
     std::ofstream file;
     file.open(path, std::ios::trunc);
 

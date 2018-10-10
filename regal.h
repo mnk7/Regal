@@ -3,10 +3,12 @@
 
 #include <QWidget>
 #include <QFileDialog>
+#include <QVBoxLayout>
 
 #include <vector>
 
 #include "buch.h"
+#include "stapel.h"
 #include "helfer.h"
 
 class Regal : public QWidget
