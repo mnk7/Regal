@@ -8,6 +8,7 @@ public:
     Buch();
 private:
     QString handle;
+    QString title;
 };
 
 #endif // BUCH_H
