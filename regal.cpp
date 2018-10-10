@@ -1,7 +1,5 @@
 #include "regal.h"
 
-#include <iostream>
-
 Regal::Regal(QWidget *parent)
     : QWidget(parent)
 {
@@ -11,6 +9,10 @@ Regal::Regal(QWidget *parent)
     } else {
         exit(2);
     }
+
+    Stapel *hauptstapel = new Stapel(this, datenbank);
+    this->setLayout(new QVBoxLayout());
+    this->layout()->addWidget(hauptstapel);
 }
 
 Regal::~Regal()
