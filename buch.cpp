@@ -1,46 +1,58 @@
 #include "buch.h"
 
-std::string& Buch::handle() const{
+Buch::Buch(std::string& h){
+    handle=h;
+}
+
+Buch::Buch(std::string &h, std::string &t, std::string &s, std::string &a, GENRE &g, unsigned int &p, unsigned int &sr, unsigned int &er, float &r, LANGUAGE &l){
+
+    handle=h; title=t; subtitle=s;author=a; pagecount=p;
+    startRead=sr; endRead=er; rating=r;
+    genre=g;
+    language=l;
+}
+
+std::string& Buch::getHandle() {
     return handle;
 }
 
-std::string& Buch::title() const{
+std::string& Buch::getTitle() const{
     return title;
 }
 
-std::string& Buch::subtitle() const{
+std::string& Buch::getSubtitle() const{
     return subtitle;
 }
 
-std::string& Buch::author() const{
+std::string& Buch::getAuthor() const{
     return author;
 }
 
-GENRE& Buch::genre() const{
+Buch::GENRE& Buch::getGenre() const{
     return genre;
 }
 
-unsigned int& Buch::pagecount() const{
+unsigned int& Buch::getPagecount() const{
     return pagecount();
 }
 
-unsigned int& Buch::startRead() const{
+unsigned int& Buch::getStartRead() const{
     return startRead;
 }
 
-unsigned int& Buch::endRead() const{
+unsigned int& Buch::getEndRead() const{
     return endRead;
 }
 
-float& Buch::rating() const{
+float& Buch::getRating() const{
     return rating;
 }
 
-LANGUAGE& Buch::language() const{
+Buch::LANGUAGE& Buch::getLanguage() const{
     return language;
 }
 
-std::string& Buch::notes() const{
+std::string& Buch::getNotes() const{
     return notes;
 }
 
