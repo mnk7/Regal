@@ -24,6 +24,9 @@ signals:
 private:
     Buch b;
     QTextEdit *notesIn;
+    QCalendarWidget *startCalendar;
+    QCalendarWidget *endCalendar;
+
     void openStartCalendar();
     void openEndCalendar();
     void changeTitle(const QString&);
@@ -36,6 +39,10 @@ private:
     void changeRating(const QString&);
     void changeLanguage(const int&);
     void changeNotes();
+
+    void setStartInvisible();
+    void setEndInvisible();
+    void setCalendarVisible(QCalendarWidget*, bool);
 };
 
 #endif // BUCHANZEIGE_H

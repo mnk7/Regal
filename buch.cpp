@@ -4,6 +4,20 @@ Buch::Buch(std::string h){
     handle=h;
 }
 
+Buch::Buch(const Buch &b){
+    this->handle=b.getHandle();
+    this->title=b.getTitle();
+    this->subtitle=b.getSubtitle();
+    this->author=b.getAuthor();
+    this->genre=b.getGenre();
+    this->pagecount=b.getPagecount();
+    this->startRead=b.getStartRead();
+    this->endRead=b.getEndRead();
+    this->rating=b.getRating();
+    this->language=b.getLanguage();
+    this->notes=b.getNotes();
+}
+
 Buch::Buch(std::string h, std::string t, std::string s, std::string a, GENRE g, unsigned int p, unsigned int sr, unsigned int er, float r, LANGUAGE l){
     handle=h; title=t; subtitle=s;author=a; pagecount=p;
     startRead=sr; endRead=er; rating=r;
@@ -142,4 +156,19 @@ const std::string Buch::languagetostring(const LANGUAGE &x) const{
     default:
         return "";
     }
+}
+
+Buch& Buch::operator=(const Buch& b){
+    this->handle=b.getHandle();
+    this->title=b.getTitle();
+    this->subtitle=b.getSubtitle();
+    this->author=b.getAuthor();
+    this->genre=b.getGenre();
+    this->pagecount=b.getPagecount();
+    this->startRead=b.getStartRead();
+    this->endRead=b.getEndRead();
+    this->rating=b.getRating();
+    this->language=b.getLanguage();
+    this->notes=b.getNotes();
+    return *this;
 }
