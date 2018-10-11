@@ -45,11 +45,13 @@ void StapelElement::clicked() {
         knopf->setFixedSize(standard);
         knopf->setIcon(icon);
         beschriftung->setVisible(true);
-        beschriftung->setFixedWidth(standard.width());
 
         this->layout()->addWidget(knopf);
         this->layout()->addWidget(beschriftung);
         klein = true;
+
+        this->resize(standard.width(),
+                     knopf->height() + beschriftung->height());
     }
 }
 
