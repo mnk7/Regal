@@ -20,6 +20,7 @@ public:
     explicit Buchanzeige(QWidget *parent, Buch& b);
     ~Buchanzeige()=default;
 signals:
+    void changed();
 
 private:
     Buch *b;

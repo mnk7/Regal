@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <QPushButton>
-#include <QGridLayout>
+#include <flowlayout.h>
 
 #include "buch.h"
 #include "buchanzeige.h"

@@ -5,25 +5,31 @@ Regal::Regal(QWidget *parent)
 {
     //get screen size
     QSize size = qApp->screens()[0]->size();
-    this->setContentsMargins(0, physicalDpiY() / 1000, 0, 0);
     this->setGeometry(static_cast<int>(size.width() * 0.25),
                       static_cast<int>(size.height() * 0.25),
                       60 * size.width() / physicalDpiX(),
                       50 * size.height() / physicalDpiY());
 
     this->setLayout(new QVBoxLayout());
+    this->layout()->setContentsMargins(0, 0, 0, 0);
 
     menu = new QWidget(this);
     menu->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     menu->setLayout(new QHBoxLayout());
+    menu->layout()->setContentsMargins(0, 0, 0, 0);
+    menu->layout()->setAlignment(Qt::AlignCenter);
 
     QPushButton *load = new QPushButton(this);
-    load->setText("Lade Datenbank");
+    load->setText("Laden");
+    load->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+    load->setFixedWidth(physicalDpiX());
     menu->layout()->addWidget(load);
     connect(load, &QPushButton::clicked, this, &Regal::getDatabase);
 
     QPushButton *save = new QPushButton(this);
-    save->setText("Speichere Datenbank");
+    save->setText("Speichern");
+    save->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+    save->setFixedWidth(physicalDpiX());
     menu->layout()->addWidget(save);
     connect(save, &QPushButton::clicked, this, &Regal::saveDatabase);
 
@@ -32,7 +38,10 @@ Regal::Regal(QWidget *parent)
     hauptstapel = new Stapel(this, datenbank);
     hauptstapel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    this->layout()->addWidget(hauptstapel);
+    scroller = new QScrollArea();
+    scroller->setWidgetResizable(true);
+    scroller->setWidget(hauptstapel);
+    this->layout()->addWidget(scroller);
 
     this->resize(this->width(), this->height());
 }
@@ -48,9 +57,10 @@ void Regal::getDatabase() {
         this->layout()->removeWidget(hauptstapel);
         delete hauptstapel;
         hauptstapel = new Stapel(this, datenbank);
-        this->layout()->addWidget(hauptstapel);
         hauptstapel->setSizePolicy(QSizePolicy::Expanding,
                                    QSizePolicy::Expanding);
+        scroller->setWidget(hauptstapel);
+        this->layout()->addWidget(scroller);
     } else {
         if(datenbank.size() == 0) {
             exit(2);

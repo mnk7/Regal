@@ -131,40 +131,50 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
 
 void Buchanzeige::changeTitle(const QString &t){
     this->b->setTitle(t.toStdString());
+    emit Buchanzeige::changed();
 }
 
 void Buchanzeige::changeSubtitle(const QString &s){
     this->b->setSubtitle(s.toStdString());
+    emit Buchanzeige::changed();
 }
 
 void Buchanzeige::changeAuthor(const QString &a){
     this->b->setAuthor(a.toStdString());
+    emit Buchanzeige::changed();
 }
 
 void Buchanzeige::changeGenre(const int &g){
     this->b->setGenre((Buch::GENRE)g);
+    emit Buchanzeige::changed();
 }
 
 void Buchanzeige::changePagecount(const QString &p){
     this->b->setPagecount(p.toUInt());
+    emit Buchanzeige::changed();
 }
 
 void Buchanzeige::changeStartRead(const QDate& date) {
     this->b->setStart((date.toString("yyyy.MM.dd")).toStdString());
+    emit Buchanzeige::changed();
 }
 
 void Buchanzeige::changeEndRead(const QDate &date){
     this->b->setEnd((date.toString("yyyy.MM.dd")).toStdString());
+    emit Buchanzeige::changed();
 }
 
 void Buchanzeige::changeRating(const QString &r){
     this->b->setRating(r.toFloat());
+    emit Buchanzeige::changed();
 }
 
 void Buchanzeige::changeLanguage(const int &l){
     this->b->setLanguage((Buch::LANGUAGE)l);
+    emit Buchanzeige::changed();
 }
 
 void Buchanzeige::changeNotes(){
     this->b->setNotes((notesIn->toPlainText()).toStdString());
+    emit Buchanzeige::changed();
 }

@@ -7,6 +7,7 @@
 #include <QHBoxLayout>
 #include <QApplication>
 #include <QScreen>
+#include <QScrollArea>
 
 #include <vector>
 
@@ -28,6 +29,7 @@ private:
 
     QWidget *menu;
     Stapel *hauptstapel;
+    QScrollArea *scroller;
 
     void getDatabase();
     void saveDatabase();

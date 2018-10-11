@@ -3,7 +3,7 @@
 
 Stapel::Stapel(QWidget *parent, std::vector<Buch> &datenbank) : QWidget(parent)
 {
-    this->setLayout(new QGridLayout());
+    this->setLayout(new FlowLayout());
 
     buecher.resize(datenbank.size());
     for(decltype (datenbank.size()) i = 0; i < datenbank.size(); ++i) {
@@ -12,7 +12,6 @@ Stapel::Stapel(QWidget *parent, std::vector<Buch> &datenbank) : QWidget(parent)
         buecher[i]->setGeometry(0, 0,
                                 buecher[i]->width(), buecher[i]->height());
         this->layout()->addWidget(buecher[i]);
-        buecher[i]->show();
     }
 }
 

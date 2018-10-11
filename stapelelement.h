@@ -18,13 +18,15 @@ public:
 signals:
 
 private:
+    Buch *buch;
+
     Buchanzeige *anzeige;
     QPushButton *knopf;
     QLabel *beschriftung;
-    QSize standard;
     QPixmap icon;
 
     void clicked();
+    void update();
 };
 
 #endif // STAPELELEMENT_H
