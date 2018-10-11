@@ -1,24 +1,11 @@
 #include "buchanzeige.h"
 
-Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
+Buchanzeige::Buchanzeige(QWidget *parent, Buch& b) : QWidget(parent)
 {
-    //test Buchanzeige
-    //Buch b("handle","title","sub","auth",Buch::Politics,100,20180101,20180102,8,Buch::German);
-    //Buchanzeige *a = new Buchanzeige(this,b);
-    //test Buchanzeige
-
-    //test Buchanzeige
-    //this->layout()->addWidget(a);
-
-    b=book;
-    QGridLayout *layout = new QGridLayout(this);
+    layout = new QGridLayout(this);
     QLabel *label;
     QLineEdit *eingabe;
     QComboBox *selector;
-//    QPushButton *dateButton;
-//    QHBoxLayout *l;
-//    setCalendarVisible(startCalendar,
-//    setCalendarVisible(endCalendar,false);
 
     for(int i=0; i<20; ++i){
         if(!(i%2)){
@@ -65,19 +52,19 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
         case 1:
             eingabe = new QLineEdit(this);
             eingabe->setText(QString::fromStdString(b.getTitle()));
-            connect(eingabe,&QLineEdit::textChanged,this,&Buchanzeige::changeTitle);
+            connect(eingabe,&QLineEdit::textChanged,&b,&Buch::setTitle);
             layout->addWidget(eingabe,i/2,i%2);
             break;
         case 3:
             eingabe = new QLineEdit(this);
             eingabe->setText(QString::fromStdString(b.getSubtitle()));
-            connect(eingabe,&QLineEdit::textChanged,this,&Buchanzeige::changeSubtitle);
+            connect(eingabe,&QLineEdit::textChanged,&b,&Buch::setSubtitle());
             layout->addWidget(eingabe,i/2,i%2);
             break;
         case 5:
             eingabe = new QLineEdit(this);
             eingabe->setText(QString::fromStdString(b.getAuthor()));
-            connect(eingabe,&QLineEdit::textChanged,this,&Buchanzeige::changeAuthor);
+            connect(eingabe,&QLineEdit::textChanged,&b,&Buch::setAuthor);
             layout->addWidget(eingabe,i/2,i%2);
             break;
         case 7:
@@ -91,40 +78,33 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
             selector->addItem("Biography");
             selector->addItem("none");
             selector->setCurrentIndex(b.getGenre());
-            connect(selector,QOverload<int>::of(&QComboBox::currentIndexChanged),this,&Buchanzeige::changeGenre);
+            connect(selector,QOverload<QString>::of(&QComboBox::currentIndexChanged),&b,&Buch::setGenre);
             layout->addWidget(selector,i/2,i%2);
             break;
         case 9:
             eingabe = new QLineEdit(this);
             eingabe->setText(QString::number(b.getPagecount()));
-            connect(eingabe,&QLineEdit::textChanged,this,&Buchanzeige::changePagecount);
+            connect(eingabe,&QLineEdit::textChanged,&b,&Buch::setPagecount);
             layout->addWidget(eingabe,i/2,i%2);
             break;
         case 11:
-//            dateButton = new QPushButton(this);
-//            dateButton->setText(QString::number(book.getStartRead()/10000)+"/"+QString::number((book.getStartRead()%10000)/100)+"/"+QString::number(book.getStartRead()%100));
-//            l= new QHBoxLayout(this);
-//            l->addWidget(dateButton);
-//            l->addWidget(startCalendar);
-//            connect(dateButton, &QPushButton::clicked, this, &Buchanzeige::openStartCalendar);
-//            layout->addLayout(l, i/2, i%2);
             startCalendar = new QDateEdit(this);
             startCalendar->setDate(QDate::fromString(QString::fromStdString(b.getStartRead()),"yyyy.MM.dd"));
             startCalendar->setCalendarPopup(true);
-            connect(startCalendar,&QDateEdit::dateChanged,this,&Buchanzeige::changeStartRead);
+            connect(startCalendar,&QDateEdit::dateChanged,&b,&Buch::setStart);
             layout->addWidget(startCalendar,i/2,i%2);
             break;
         case 13:
             endCalendar = new QDateEdit(this);
             endCalendar->setDate(QDate::fromString(QString::fromStdString(b.getEndRead()),"yyyy.MM.dd"));
             endCalendar->setCalendarPopup(true);
-            connect(endCalendar,&QDateEdit::dateChanged,this,&Buchanzeige::changeEndRead);
+            connect(endCalendar,&QDateEdit::dateChanged,&b,&Buch::setEnd);
             layout->addWidget(endCalendar,i/2,i%2);
             break;
         case 15:
             eingabe = new QLineEdit(this);
             eingabe->setText(QString::number(b.getRating()));
-            connect(eingabe,&QLineEdit::textChanged,this,&Buchanzeige::changeRating);
+            connect(eingabe,&QLineEdit::textChanged,&b,&Buch::setRating);
             layout->addWidget(eingabe,i/2,i%2);
             break;
         case 17:
@@ -133,13 +113,13 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
             selector->addItem("German");
             selector->addItem("NA");
             selector->setCurrentIndex(b.getLanguage());
-            connect(selector,QOverload<int>::of(&QComboBox::currentIndexChanged),this,&Buchanzeige::changeLanguage);
+            connect(selector,QOverload<QString>::of(&QComboBox::currentIndexChanged),&b,&Buch::setLanguage);
             layout->addWidget(selector,i/2,i%2);
             break;
         case 19:
             notesIn = new QTextEdit(this);
             notesIn->setText(QString::fromStdString(b.getNotes()));
-            connect(notesIn,&QTextEdit::textChanged,this,&Buchanzeige::changeNotes);
+            connect(notesIn,&QTextEdit::textChanged,&b,&Buch::setNotes);
             layout->addWidget(notesIn,i/2,i%2);
             break;
         default:
@@ -148,69 +128,42 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
     }
 }
 
-
-//void Buchanzeige::openStartCalendar() {
-//    setCalendarVisible(startCalendar,true);
-//    connect(startCalendar, &QCalendarWidget::clicked, this, &Buchanzeige::changeStartRead);
-//    connect(startCalendar, &QCalendarWidget::activated, this, &Buchanzeige::setStartInvisible);
+//void Buchanzeige::changeTitle(const QString &t){
+//    this->b.setTitle(t.toStdString());
 //}
 
-//void Buchanzeige::openEndCalendar() {
-//    setCalendarVisible(endCalendar,true);
-//    connect(endCalendar, &QCalendarWidget::clicked, this, &Buchanzeige::changeEndRead);
-//    connect(endCalendar, &QCalendarWidget::activated, this, &Buchanzeige::setEndInvisible);
+//void Buchanzeige::changeSubtitle(const QString &s){
+//    this->b.setSubtitle(s.toStdString());
 //}
 
-void Buchanzeige::changeTitle(const QString &t){
-    this->b.setTitle(t.toStdString());
-}
-
-void Buchanzeige::changeSubtitle(const QString &s){
-    this->b.setSubtitle(s.toStdString());
-}
-
-void Buchanzeige::changeAuthor(const QString &a){
-    this->b.setAuthor(a.toStdString());
-}
-
-void Buchanzeige::changeGenre(const int &g){
-    this->b.setGenre((Buch::GENRE)g);
-}
-
-void Buchanzeige::changePagecount(const QString &p){
-    this->b.setPagecount(p.toUInt());
-}
-
-void Buchanzeige::changeStartRead(const QDate& date) {
-    this->b.setStart((date.toString("yyyy.MM.dd")).toStdString());
-}
-
-void Buchanzeige::changeEndRead(const QDate &date){
-    this->b.setEnd((date.toString("yyyy.MM.dd")).toStdString());
-}
-
-void Buchanzeige::changeRating(const QString &r){
-    this->b.setRating(r.toFloat());
-}
-
-void Buchanzeige::changeLanguage(const int &l){
-    this->b.setLanguage((Buch::LANGUAGE)l);
-}
-
-void Buchanzeige::changeNotes(){
-    this->b.setNotes((notesIn->toPlainText()).toStdString());
-}
-
-
-//void Buchanzeige::setStartInvisible(){
-//    setCalendarVisible(this->startCalendar,false);
+//void Buchanzeige::changeAuthor(const QString &a){
+//    this->b.setAuthor(a.toStdString());
 //}
 
-//void Buchanzeige::setEndInvisible(){
-//    setCalendarVisible(this->endCalendar,false);
+//void Buchanzeige::changeGenre(const int &g){
+//    this->b.setGenre((Buch::GENRE)g);
 //}
 
-//void Buchanzeige::setCalendarVisible(QCalendarWidget *c, bool v){
-//    c->setGridVisible(v);
-//    c->setNavigationBarVisible(v);
+//void Buchanzeige::changePagecount(const QString &p){
+//    this->b.setPagecount(p.toUInt());
+//}
+
+//void Buchanzeige::changeStartRead(const QDate& date) {
+//    this->b.setStart((date.toString("yyyy.MM.dd")).toStdString());
+//}
+
+//void Buchanzeige::changeEndRead(const QDate &date){
+//    this->b.setEnd((date.toString("yyyy.MM.dd")).toStdString());
+//}
+
+//void Buchanzeige::changeRating(const QString &r){
+//    this->b.setRating(r.toFloat());
+//}
+
+//void Buchanzeige::changeLanguage(const int &l){
+//    this->b.setLanguage((Buch::LANGUAGE)l);
+//}
+
+//void Buchanzeige::changeNotes(){
+//    this->b.setNotes((notesIn->toPlainText()).toStdString());
 //}
