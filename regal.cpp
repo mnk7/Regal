@@ -5,7 +5,7 @@ Regal::Regal(QWidget *parent)
 {
     //get screen size
     QSize size = qApp->screens()[0]->size();
-    this->setContentsMargins(0, physicalDpiX() / 1000, 0, 0);
+    this->setContentsMargins(0, physicalDpiY() / 1000, 0, 0);
     this->setGeometry(static_cast<int>(size.width() * 0.25),
                       static_cast<int>(size.height() * 0.25),
                       60 * size.width() / physicalDpiX(),

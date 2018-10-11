@@ -32,9 +32,9 @@ std::vector<Buch> loadData(const std::string path) {
             } else if(label == "pagecount") {
                 b.setPagecount(static_cast<unsigned int>(std::stoul(value)));
             } else if(label == "startread") {
-                b.setStart(static_cast<unsigned int>(std::stoul(value)));
+                b.setStart(value);
             } else if(label == "endread") {
-                b.setEnd(static_cast<unsigned int>(std::stoul(value)));
+                b.setEnd(value);
             } else if(label == "rating") {
                 b.setRating(static_cast<float>(std::stof(value)));
             } else if(label == "language") {

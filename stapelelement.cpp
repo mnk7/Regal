@@ -7,6 +7,7 @@ StapelElement::StapelElement(QWidget *parent, Buch& b)
     this->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     standard.setWidth(physicalDpiX());
     standard.setHeight(physicalDpiY());
+    klein = true;
 
     anzeige = new Buchanzeige(this, b);
     anzeige->setVisible(false);
@@ -31,20 +32,14 @@ StapelElement::StapelElement(QWidget *parent, Buch& b)
 }
 
 void StapelElement::clicked() {
-    if(klein) {
+    if(!klein) {
         this->layout()->removeWidget(knopf);
-        this->layout()->removeWidget(beschriftung);
-        this->setGeometry(0, 0,
-                          parentWidget()->width(), parentWidget()->height());
-        anzeige->setGeometry(physicalDpiX() / 2, physicalDpiY() / 2,
-                             parentWidget()->width() - physicalDpiX(),
-                             parentWidget()->height() - physicalDpiY());
-        anzeige->setVisible(true);
-        knopf->setGeometry(0, 0,
-                           this->width(), this->height());
         knopf->setIcon(QIcon());
-        beschriftung->setVisible(false);
+        this->layout()->removeWidget(beschriftung);
+        anzeige->setVisible(true);
         klein = false;
+
+        this->resize(this->size());
     } else {
         anzeige->setVisible(false);
         knopf->setFixedSize(standard);
@@ -62,11 +57,12 @@ void StapelElement::resizeEvent(QResizeEvent *event) {
     if(!klein) {
         this->setGeometry(0, 0,
                           parentWidget()->width(), parentWidget()->height());
+        knopf->setGeometry(0, 0,
+                           this->width(), this->height());
         anzeige->setGeometry(physicalDpiX() / 2, physicalDpiY() / 2,
                              parentWidget()->width() - physicalDpiX(),
                              parentWidget()->height() - physicalDpiY());
-        knopf->setGeometry(0, 0,
-                           this->width(), this->height());
+        anzeige->raise();
     }
 
     QWidget::resizeEvent(event);
