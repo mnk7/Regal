@@ -7,8 +7,9 @@ class Buch
 public:
     enum GENRE {SciFi, Fantasy, Literary_Fiction, Thriller, Politics, Philosophy, Biography, none};
     enum LANGUAGE {English, German, NA};
-//    Buch()=default;
+    Buch()=default;
     Buch(std::string h);
+    Buch(const Buch &b);
     Buch(std::string h, std::string t, std::string s, std::string a, GENRE g, unsigned int p, unsigned int sr, unsigned int er, float r, LANGUAGE l);
     const std::string& getHandle() const ;
     const std::string& getTitle() const;
@@ -34,9 +35,10 @@ public:
 
     GENRE stringtogenre(const std::string);
     LANGUAGE stringtolanguage(const std::string);
-
     const std::string genretostring(const GENRE&) const;
     const std::string languagetostring(const LANGUAGE&) const;
+
+    Buch& operator=(const Buch&);
 private:
     std::string handle;
     std::string title;
