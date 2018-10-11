@@ -25,47 +25,47 @@ Buch::Buch(std::string h, std::string t, std::string s, std::string a, GENRE g, 
     language=l;
 }
 
-const std::string& Buch::getHandle() const {
+const std::string Buch::getHandle() const {
     return handle;
 }
 
-const std::string &Buch::getTitle() const{
+const std::string Buch::getTitle() const{
     return title;
 }
 
-const std::string& Buch::getSubtitle() const{
+const std::string Buch::getSubtitle() const{
     return subtitle;
 }
 
-const std::string& Buch::getAuthor() const{
+const std::string Buch::getAuthor() const{
     return author;
 }
 
-const Buch::GENRE& Buch::getGenre() const{
+Buch::GENRE Buch::getGenre() const{
     return genre;
 }
 
-const unsigned int& Buch::getPagecount() const{
+unsigned int Buch::getPagecount() const{
     return pagecount;
 }
 
-const std::string& Buch::getStartRead() const{
+const std::string Buch::getStartRead() const{
     return startRead;
 }
 
-const std::string &Buch::getEndRead() const{
+const std::string Buch::getEndRead() const{
     return endRead;
 }
 
-const float& Buch::getRating() const{
+float Buch::getRating() const{
     return rating;
 }
 
-const Buch::LANGUAGE& Buch::getLanguage() const{
+Buch::LANGUAGE Buch::getLanguage() const{
     return language;
 }
 
-const std::string& Buch::getNotes() const{
+const std::string Buch::getNotes() const{
     return notes;
 }
 

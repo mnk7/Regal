@@ -32,8 +32,6 @@ private:
     void getDatabase();
     void saveDatabase();
 
-    void resizeEvent(QResizeEvent*);
-
 };
 
 #endif // REGAL_H

@@ -13,12 +13,12 @@ class StapelElement : public QWidget
 {
     Q_OBJECT
 public:
-    explicit StapelElement(QWidget *parent, Buch& b);
+    explicit StapelElement(QWidget *parent, Buch &b);
 
 signals:
 
 private:
-    Buch buch;
+    Buch &buch;
     Buchanzeige *anzeige;
     QPushButton *knopf;
     QLabel *beschriftung;
@@ -28,7 +28,6 @@ private:
     bool klein;
 
     void clicked();
-    void resizeEvent(QResizeEvent*);
 };
 
 #endif // STAPELELEMENT_H

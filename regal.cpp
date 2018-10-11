@@ -11,6 +11,8 @@ Regal::Regal(QWidget *parent)
                       60 * size.width() / physicalDpiX(),
                       50 * size.height() / physicalDpiY());
 
+    this->setLayout(new QVBoxLayout());
+
     menu = new QWidget(this);
     menu->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     menu->setLayout(new QHBoxLayout());
@@ -25,9 +27,12 @@ Regal::Regal(QWidget *parent)
     menu->layout()->addWidget(save);
     connect(save, &QPushButton::clicked, this, &Regal::saveDatabase);
 
+    this->layout()->addWidget(menu);
 
     hauptstapel = new Stapel(this, datenbank);
     hauptstapel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    this->layout()->addWidget(hauptstapel);
 
     this->resize(this->width(), this->height());
 }
@@ -40,20 +45,21 @@ void Regal::getDatabase() {
     path = QFileDialog::getOpenFileName(this, "Lade Datenbank", ".");
     if(path.size() > 0) {
         datenbank = loadData(path.toStdString());
+        this->layout()->removeWidget(hauptstapel);
+        delete hauptstapel;
         hauptstapel = new Stapel(this, datenbank);
+        this->layout()->addWidget(hauptstapel);
+        hauptstapel->setSizePolicy(QSizePolicy::Expanding,
+                                   QSizePolicy::Expanding);
     } else {
-        exit(2);
+        if(datenbank.size() == 0) {
+            exit(2);
+        }
     }
 }
 
 void Regal::saveDatabase() {
-    saveData(path.toStdString(), datenbank);
-}
-
-void Regal::resizeEvent(QResizeEvent* event) {
-    menu->setGeometry(0, 0, this->width(), physicalDpiY() / 3);
-    hauptstapel->setGeometry(0, menu->height(),
-                             this->width(), this->height() - menu->height());
-
-    QWidget::resizeEvent(event);
+    if(path.size() != 0) {
+        saveData(path.toStdString(), datenbank);
+    }
 }
