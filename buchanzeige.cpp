@@ -78,7 +78,7 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& b) : QWidget(parent)
             selector->addItem("Biography");
             selector->addItem("none");
             selector->setCurrentIndex(b.getGenre());
-            connect(selector,QOverload<QString>::of(&QComboBox::currentIndexChanged),&b,&Buch::setGenre);
+            connect(selector,QOverload<int>::of(&QComboBox::currentIndexChanged),&b,&Buch::setGenre);
             layout->addWidget(selector,i/2,i%2);
             break;
         case 9:
@@ -113,7 +113,7 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& b) : QWidget(parent)
             selector->addItem("German");
             selector->addItem("NA");
             selector->setCurrentIndex(b.getLanguage());
-            connect(selector,QOverload<QString>::of(&QComboBox::currentIndexChanged),&b,&Buch::setLanguage);
+            connect(selector,QOverload<int>::of(&QComboBox::currentIndexChanged),&b,&Buch::setLanguage);
             layout->addWidget(selector,i/2,i%2);
             break;
         case 19:
