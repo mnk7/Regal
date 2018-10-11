@@ -17,9 +17,7 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
     QComboBox *selector;
 //    QPushButton *dateButton;
 //    QHBoxLayout *l;
-    startCalendar = new QDateEdit(this);
-//    setCalendarVisible(startCalendar,false);
-    endCalendar = new QDateEdit(this);
+//    setCalendarVisible(startCalendar,
 //    setCalendarVisible(endCalendar,false);
 
     for(int i=0; i<20; ++i){
@@ -115,12 +113,11 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
             startCalendar->setCalendarPopup(true);
             connect(startCalendar,&QDateEdit::dateChanged,this,&Buchanzeige::changeStartRead);
             layout->addWidget(startCalendar,i/2,i%2);
-//            startCalendar->setDate();
             break;
         case 13:
             endCalendar = new QDateEdit(this);
             endCalendar->setDate(QDate::fromString(QString::fromStdString(b.getEndRead()),"yyyy.MM.dd"));
-            startCalendar->setCalendarPopup(true);
+            endCalendar->setCalendarPopup(true);
             connect(endCalendar,&QDateEdit::dateChanged,this,&Buchanzeige::changeEndRead);
             layout->addWidget(endCalendar,i/2,i%2);
             break;
