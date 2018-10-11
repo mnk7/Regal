@@ -111,7 +111,7 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
 //            connect(dateButton, &QPushButton::clicked, this, &Buchanzeige::openStartCalendar);
 //            layout->addLayout(l, i/2, i%2);
             startCalendar = new QDateEdit(this);
-            startCalendar->setDate(QDate::fromString(QString::fromStdString(b.getStartRead()),"yyyy.MM.dd");
+            startCalendar->setDate(QDate::fromString(QString::fromStdString(b.getStartRead()),"yyyy.MM.dd"));
             startCalendar->setCalendarPopup(true);
             connect(startCalendar,&QDateEdit::dateChanged,this,&Buchanzeige::changeStartRead);
             layout->addWidget(startCalendar,i/2,i%2);
@@ -119,7 +119,7 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
             break;
         case 13:
             endCalendar = new QDateEdit(this);
-            endCalendar->setDate(QDate::fromString(QString::fromStdString(b.getEndRead()),"yyyy.MM.dd");
+            endCalendar->setDate(QDate::fromString(QString::fromStdString(b.getEndRead()),"yyyy.MM.dd"));
             startCalendar->setCalendarPopup(true);
             connect(endCalendar,&QDateEdit::dateChanged,this,&Buchanzeige::changeEndRead);
             layout->addWidget(endCalendar,i/2,i%2);
