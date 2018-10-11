@@ -28,6 +28,8 @@ Regal::Regal(QWidget *parent)
 
     hauptstapel = new Stapel(this, datenbank);
     hauptstapel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    this->resize(this->width(), this->height());
 }
 
 Regal::~Regal()
