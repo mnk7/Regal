@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QFileDialog>
 #include <QVBoxLayout>
+#include <QHBoxLayout>
 #include <QApplication>
 #include <QScreen>
 
@@ -24,6 +25,9 @@ public:
 private:
     std::vector<Buch> datenbank;
     QString path;
+
+    void getDatabase();
+    void saveDatabase();
 
 };
 

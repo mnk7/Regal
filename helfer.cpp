@@ -57,6 +57,10 @@ void saveData(const std::string path, const std::vector<Buch> &data) {
     file.open(path, std::ios::trunc);
 
     for(const Buch& b: data) {
+        //deleted books have no handle
+        if(b.getHandle() == "") {
+            continue;
+        }
         printBuch(file, b);
     }
 
@@ -66,14 +70,14 @@ void saveData(const std::string path, const std::vector<Buch> &data) {
 
 void printBuch(std::ostream &os, const Buch &b) {
     os << b.getHandle() << "{" << std::endl;
-    os << "\ttitle=" << b.getTitle() << std::endl;
-    os << "\tsubtitle=" << b.getSubtitle() << std::endl;
-    os << "\tauthor=" << b.getAuthor() << std::endl;
-    os << "\tgenre=" << b.genretostring(b.getGenre()) << std::endl;
-    os << "\tpagecount=" << b.getPagecount() << std::endl;
-    os << "\tstartread=" << b.getStartRead() << std::endl;
-    os << "\tendread=" << b.getEndRead() << std::endl;
-    os << "\trating=" << b.getRating() << std::endl;
-    os << "\tlanguage=" << b.languagetostring(b.getLanguage()) << std::endl;
-    os << "\tnotes=" << b.getNotes() << std::endl << "}" << std::endl;
+    os << "title=" << b.getTitle() << std::endl;
+    os << "subtitle=" << b.getSubtitle() << std::endl;
+    os << "author=" << b.getAuthor() << std::endl;
+    os << "genre=" << b.genretostring(b.getGenre()) << std::endl;
+    os << "pagecount=" << b.getPagecount() << std::endl;
+    os << "startread=" << b.getStartRead() << std::endl;
+    os << "endread=" << b.getEndRead() << std::endl;
+    os << "rating=" << b.getRating() << std::endl;
+    os << "language=" << b.languagetostring(b.getLanguage()) << std::endl;
+    os << "notes=" << b.getNotes() << std::endl << "}" << std::endl;
 }

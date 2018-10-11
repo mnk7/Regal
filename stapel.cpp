@@ -5,7 +5,7 @@ Stapel::Stapel(QWidget *parent, std::vector<Buch> &d) : QWidget(parent)
     datenbank = d;
 
     QPixmap icon(":/Bilder/Buch");
-    icon = icon.scaled(physicalDpiX(), physicalDpiY(), Qt::KeepAspectRatio);
+    icon = icon.scaled(physicalDpiX() / 2, physicalDpiY() / 2, Qt::KeepAspectRatio);
 
     buecher.resize(datenbank.size());
     for(Buch &b: datenbank) {
