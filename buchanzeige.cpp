@@ -2,19 +2,28 @@
 
 Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
 {
+    //test Buchanzeige
+    //Buch b("handle","title","sub","auth",Buch::Politics,100,20180101,20180102,8,Buch::German);
+    //Buchanzeige *a = new Buchanzeige(this,b);
+    //test Buchanzeige
+
+    //test Buchanzeige
+    //this->layout()->addWidget(a);
+
     b=book;
     QGridLayout *layout = new QGridLayout(this);
     QLabel *label;
     QLineEdit *eingabe;
     QComboBox *selector;
-    QPushButton *dateButton;
-    startCalendar = new QCalendarWidget(this);
-    setCalendarVisible(startCalendar,false);
-    endCalendar = new QCalendarWidget(this);
-    setCalendarVisible(endCalendar,false);
+//    QPushButton *dateButton;
+//    QHBoxLayout *l;
+    startCalendar = new QDateEdit(this);
+//    setCalendarVisible(startCalendar,false);
+    endCalendar = new QDateEdit(this);
+//    setCalendarVisible(endCalendar,false);
 
     for(int i=0; i<20; ++i){
-        if(!i%2){
+        if(!(i%2)){
             label = new QLabel(this);
             switch(i){
             case 0:
@@ -51,6 +60,7 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
                 label->setText("This should not have happened!");
                 break;
             }
+            label->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Fixed);
             layout->addWidget(label, i/2,i%2);
         }
         else switch (i) {
@@ -93,10 +103,15 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
             layout->addWidget(eingabe,i/2,i%2);
             break;
         case 11:
-            dateButton = new QPushButton(this);
-            dateButton->setText(QString::number(book.getStartRead()/10000)+"/"+QString::number((book.getStartRead()%10000)/100)+"/"+QString::number(book.getStartRead()%100));
-            connect(dateButton, &QPushButton::clicked, this, &Buchanzeige::openStartCalendar);
-            layout->addWidget(dateButton, i/2, i%2);
+//            dateButton = new QPushButton(this);
+//            dateButton->setText(QString::number(book.getStartRead()/10000)+"/"+QString::number((book.getStartRead()%10000)/100)+"/"+QString::number(book.getStartRead()%100));
+//            l= new QHBoxLayout(this);
+//            l->addWidget(dateButton);
+//            l->addWidget(startCalendar);
+//            connect(dateButton, &QPushButton::clicked, this, &Buchanzeige::openStartCalendar);
+//            layout->addLayout(l, i/2, i%2);
+            startCalendar = new QDateEdit(this);
+//            startCalendar->setDate();
             break;
         case 13:
             dateButton = new QPushButton(this);

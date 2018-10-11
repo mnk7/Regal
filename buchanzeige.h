@@ -9,7 +9,7 @@
 #include <QComboBox>
 #include <buch.h>
 #include <QPushButton>
-#include <QCalendarWidget>
+#include <QDateEdit>
 #include <QDate>
 #include <QtGlobal>
 
@@ -24,8 +24,8 @@ signals:
 private:
     Buch b;
     QTextEdit *notesIn;
-    QCalendarWidget *startCalendar;
-    QCalendarWidget *endCalendar;
+    QDateEdit *startCalendar;
+    QDateEdit *endCalendar;
 
     void openStartCalendar();
     void openEndCalendar();
@@ -40,9 +40,9 @@ private:
     void changeLanguage(const int&);
     void changeNotes();
 
-    void setStartInvisible();
-    void setEndInvisible();
-    void setCalendarVisible(QCalendarWidget*, bool);
+//    void setStartInvisible();
+//    void setEndInvisible();
+//    void setCalendarVisible(QCalendarWidget*, bool);
 };
 
 #endif // BUCHANZEIGE_H
