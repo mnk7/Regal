@@ -15,12 +15,12 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
     QLabel *label;
     QLineEdit *eingabe;
     QComboBox *selector;
-    QPushButton *dateButton;
-    QHBoxLayout *l;
-    startCalendar = new QCalendarWidget(this);
-    setCalendarVisible(startCalendar,false);
-    endCalendar = new QCalendarWidget(this);
-    setCalendarVisible(endCalendar,false);
+//    QPushButton *dateButton;
+//    QHBoxLayout *l;
+    startCalendar = new QDateEdit(this);
+//    setCalendarVisible(startCalendar,false);
+    endCalendar = new QDateEdit(this);
+//    setCalendarVisible(endCalendar,false);
 
     for(int i=0; i<20; ++i){
         if(!(i%2)){
@@ -103,13 +103,15 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
             layout->addWidget(eingabe,i/2,i%2);
             break;
         case 11:
-            dateButton = new QPushButton(this);
-            dateButton->setText(QString::number(book.getStartRead()/10000)+"/"+QString::number((book.getStartRead()%10000)/100)+"/"+QString::number(book.getStartRead()%100));
-            l= new QHBoxLayout(this);
-            l->addWidget(dateButton);
-            l->addWidget(startCalendar);
-            connect(dateButton, &QPushButton::clicked, this, &Buchanzeige::openStartCalendar);
-            layout->addLayout(l, i/2, i%2);
+//            dateButton = new QPushButton(this);
+//            dateButton->setText(QString::number(book.getStartRead()/10000)+"/"+QString::number((book.getStartRead()%10000)/100)+"/"+QString::number(book.getStartRead()%100));
+//            l= new QHBoxLayout(this);
+//            l->addWidget(dateButton);
+//            l->addWidget(startCalendar);
+//            connect(dateButton, &QPushButton::clicked, this, &Buchanzeige::openStartCalendar);
+//            layout->addLayout(l, i/2, i%2);
+            startCalendar = new QDateEdit(this);
+//            startCalendar->setDate();
             break;
         case 13:
             dateButton = new QPushButton(this);
