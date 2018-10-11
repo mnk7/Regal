@@ -16,10 +16,7 @@ public:
     explicit Stapel(QWidget *parent, std::vector<Buch> &d);
     ~Stapel();
 
-signals:
-
 private:
-    std::vector<Buch> datenbank;
     std::vector<StapelElement*> buecher;
 };
 

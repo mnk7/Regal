@@ -1,10 +1,8 @@
 #include "stapelelement.h"
 
-StapelElement::StapelElement(QWidget *parent, Buch &b)
-    : QWidget(parent), buch(b)
+StapelElement::StapelElement(QWidget *parent, Buch &buch)
+    : QWidget(parent)
 {
-    klein = true;
-
     this->setLayout(new QVBoxLayout());
 
     QPixmap icon(":/Bilder/Buch");
@@ -25,9 +23,8 @@ StapelElement::StapelElement(QWidget *parent, Buch &b)
     beschriftung->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     this->layout()->addWidget(beschriftung);
 
-    anzeige = new Buchanzeige(this, buch);
+    anzeige = new Buchanzeige(nullptr, buch);
     anzeige->setVisible(false);
-    this->layout()->addWidget(anzeige);
 
     standard.setWidth(this->width());
     standard.setHeight(this->height());
@@ -35,22 +32,8 @@ StapelElement::StapelElement(QWidget *parent, Buch &b)
 
 
 void StapelElement::clicked() {
-    if(klein) {
-        knopf->setIcon(QIcon());
-        anzeige->setVisible(true);
-        klein = false;
-
-        this->resize(parentWidget()->size());
-    } else {
-        anzeige->setVisible(false);
-        knopf->setIcon(icon);
-        beschriftung->setVisible(true);
-
-        klein = true;
-
-        this->resize(standard.width(),
-                     standard.height());
-    }
+    anzeige->setVisible(true);
+    anzeige->show();
 }
 
 

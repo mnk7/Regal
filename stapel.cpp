@@ -1,10 +1,8 @@
 #include "stapel.h"
 #include <iostream>
 
-Stapel::Stapel(QWidget *parent, std::vector<Buch> &d) : QWidget(parent)
+Stapel::Stapel(QWidget *parent, std::vector<Buch> &datenbank) : QWidget(parent)
 {
-    datenbank = d;
-
     this->setLayout(new QGridLayout());
 
     buecher.resize(datenbank.size());

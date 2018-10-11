@@ -18,14 +18,11 @@ public:
 signals:
 
 private:
-    Buch &buch;
     Buchanzeige *anzeige;
     QPushButton *knopf;
     QLabel *beschriftung;
     QSize standard;
     QPixmap icon;
-
-    bool klein;
 
     void clicked();
 };
