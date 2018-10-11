@@ -3,9 +3,11 @@
 
 #include <QWidget>
 #include <QPushButton>
+#include <QGridLayout>
 
 #include "buch.h"
 #include "buchanzeige.h"
+#include "stapelelement.h"
 
 class Stapel : public QWidget
 {
@@ -18,7 +20,7 @@ signals:
 
 private:
     std::vector<Buch> datenbank;
-    std::vector<QPushButton*> buecher;
+    std::vector<StapelElement*> buecher;
 };
 
 #endif // STAPEL_H

@@ -30,14 +30,16 @@ SOURCES += \
     buch.cpp \
     stapel.cpp \
     buchanzeige.cpp \
-    helfer.cpp
+    helfer.cpp \
+    stapelelement.cpp
 
 HEADERS += \
         regal.h \
     buch.h \
     stapel.h \
     buchanzeige.h \
-    helfer.h
+    helfer.h \
+    stapelelement.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -26,6 +26,8 @@ private:
     std::vector<Buch> datenbank;
     QString path;
 
+    Stapel *hauptstapel;
+
     void getDatabase();
     void saveDatabase();
 

@@ -27,7 +27,7 @@ Regal::Regal(QWidget *parent)
     connect(save, &QPushButton::clicked, this, &Regal::saveDatabase);
 
 
-    Stapel *hauptstapel = new Stapel(this, datenbank);
+    hauptstapel = new Stapel(this, datenbank);
     hauptstapel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     this->layout()->addWidget(hauptstapel);
 }
@@ -40,6 +40,9 @@ void Regal::getDatabase() {
     path = QFileDialog::getOpenFileName(this, "Lade Datenbank", ".");
     if(path.size() > 0) {
         datenbank = loadData(path.toStdString());
+        this->layout()->removeWidget(hauptstapel);
+        hauptstapel = new Stapel(this, datenbank);
+        this->layout()->addWidget(hauptstapel);
     } else {
         exit(2);
     }

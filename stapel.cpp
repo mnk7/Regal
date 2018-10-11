@@ -4,18 +4,13 @@ Stapel::Stapel(QWidget *parent, std::vector<Buch> &d) : QWidget(parent)
 {
     datenbank = d;
 
-    QPixmap icon(":/Bilder/Buch");
-    icon = icon.scaled(physicalDpiX() / 2, physicalDpiY() / 2, Qt::KeepAspectRatio);
+    this->setLayout(new QGridLayout());
 
     buecher.resize(datenbank.size());
-    for(Buch &b: datenbank) {
+    for(decltype (datenbank.size()) i = 0; i < datenbank.size(); ++i) {
         //the first button is related to the first book etc.
-        QPushButton *anzeige = new QPushButton(this);
-        anzeige->setFlat(true);
-        anzeige->setIcon(icon);
-        anzeige->setIconSize(QSize(icon.width(), icon.height()));
-        anzeige->setFixedSize(icon.width(), icon.height());
-        buecher.push_back(anzeige);
+        buecher.push_back(new StapelElement(this, datenbank.at(i)));
+        this->layout()->addWidget(buecher.at(i));
     }
 }
 
