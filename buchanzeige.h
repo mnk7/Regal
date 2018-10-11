@@ -27,8 +27,8 @@ private:
     QDateEdit *startCalendar;
     QDateEdit *endCalendar;
 
-    void openStartCalendar();
-    void openEndCalendar();
+//    void openStartCalendar();
+//    void openEndCalendar();
     void changeTitle(const QString&);
     void changeSubtitle(const QString&);
     void changeAuthor(const QString&);

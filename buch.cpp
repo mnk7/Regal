@@ -18,7 +18,7 @@ Buch::Buch(const Buch &b){
     this->notes=b.getNotes();
 }
 
-Buch::Buch(std::string h, std::string t, std::string s, std::string a, GENRE g, unsigned int p, unsigned int sr, unsigned int er, float r, LANGUAGE l){
+Buch::Buch(std::string h, std::string t, std::string s, std::string a, GENRE g, unsigned int p, std::string sr, std::string er, float r, LANGUAGE l){
     handle=h; title=t; subtitle=s;author=a; pagecount=p;
     startRead=sr; endRead=er; rating=r;
     genre=g;
@@ -49,11 +49,11 @@ const unsigned int& Buch::getPagecount() const{
     return pagecount;
 }
 
-const unsigned int& Buch::getStartRead() const{
+const std::string& Buch::getStartRead() const{
     return startRead;
 }
 
-const unsigned int& Buch::getEndRead() const{
+const std::string &Buch::getEndRead() const{
     return endRead;
 }
 
@@ -89,11 +89,11 @@ void Buch::setPagecount(const unsigned int x){
     pagecount=x;
 }
 
-void Buch::setStart(const unsigned int x){
+void Buch::setStart(const std::string x){
     startRead=x;
 }
 
-void Buch::setEnd(const unsigned int x){
+void Buch::setEnd(const std::string x){
     endRead=x;
 }
 
