@@ -1,7 +1,8 @@
 #include "buchanzeige.h"
 
-Buchanzeige::Buchanzeige(QWidget *parent, Buch& b) : QWidget(parent)
+Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
 {
+    b = &book;
     layout = new QGridLayout(this);
     QLabel *label;
     QLineEdit *eingabe;
@@ -51,20 +52,20 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& b) : QWidget(parent)
         else switch (i) {
         case 1:
             eingabe = new QLineEdit(this);
-            eingabe->setText(QString::fromStdString(b.getTitle()));
-            connect(eingabe,&QLineEdit::textChanged,&b,&Buch::setTitleQt);
+            eingabe->setText(QString::fromStdString(b->getTitle()));
+            connect(eingabe,&QLineEdit::textChanged,this,&Buchanzeige::changeTitle);
             layout->addWidget(eingabe,i/2,i%2);
             break;
         case 3:
             eingabe = new QLineEdit(this);
-            eingabe->setText(QString::fromStdString(b.getSubtitle()));
-            connect(eingabe,&QLineEdit::textChanged,&b,&Buch::setSubtitleQt);
+            eingabe->setText(QString::fromStdString(b->getSubtitle()));
+            connect(eingabe,&QLineEdit::textChanged,this,&Buchanzeige::changeSubtitle);
             layout->addWidget(eingabe,i/2,i%2);
             break;
         case 5:
             eingabe = new QLineEdit(this);
-            eingabe->setText(QString::fromStdString(b.getAuthor()));
-            connect(eingabe,&QLineEdit::textChanged,&b,&Buch::setAuthorQt);
+            eingabe->setText(QString::fromStdString(b->getAuthor()));
+            connect(eingabe,&QLineEdit::textChanged,this,&Buchanzeige::changeAuthor);
             layout->addWidget(eingabe,i/2,i%2);
             break;
         case 7:
@@ -77,34 +78,34 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& b) : QWidget(parent)
             selector->addItem("Philosophy");
             selector->addItem("Biography");
             selector->addItem("none");
-            selector->setCurrentIndex(b.getGenre());
-            connect(selector,QOverload<int>::of(&QComboBox::currentIndexChanged),&b,&Buch::setGenreQt);
+            selector->setCurrentIndex(b->getGenre());
+            connect(selector,QOverload<int>::of(&QComboBox::currentIndexChanged),this,&Buchanzeige::changeGenre);
             layout->addWidget(selector,i/2,i%2);
             break;
         case 9:
             eingabe = new QLineEdit(this);
-            eingabe->setText(QString::number(b.getPagecount()));
-            connect(eingabe,&QLineEdit::textChanged,&b,&Buch::setPagecountQt);
+            eingabe->setText(QString::number(b->getPagecount()));
+            connect(eingabe,&QLineEdit::textChanged,this,&Buchanzeige::changePagecount);
             layout->addWidget(eingabe,i/2,i%2);
             break;
         case 11:
             startCalendar = new QDateEdit(this);
-            startCalendar->setDate(QDate::fromString(QString::fromStdString(b.getStartRead()),"yyyy.MM.dd"));
+            startCalendar->setDate(QDate::fromString(QString::fromStdString(b->getStartRead()),"yyyy.MM.dd"));
             startCalendar->setCalendarPopup(true);
-            connect(startCalendar,&QDateEdit::dateChanged,&b,&Buch::setStartQt);
+            connect(startCalendar,&QDateEdit::dateChanged,this,&Buchanzeige::changeStartRead);
             layout->addWidget(startCalendar,i/2,i%2);
             break;
         case 13:
             endCalendar = new QDateEdit(this);
-            endCalendar->setDate(QDate::fromString(QString::fromStdString(b.getEndRead()),"yyyy.MM.dd"));
+            endCalendar->setDate(QDate::fromString(QString::fromStdString(b->getEndRead()),"yyyy.MM.dd"));
             endCalendar->setCalendarPopup(true);
-            connect(endCalendar,&QDateEdit::dateChanged,&b,&Buch::setEndQt);
+            connect(endCalendar,&QDateEdit::dateChanged,this,&Buchanzeige::changeEndRead);
             layout->addWidget(endCalendar,i/2,i%2);
             break;
         case 15:
             eingabe = new QLineEdit(this);
-            eingabe->setText(QString::number(b.getRating()));
-            connect(eingabe,&QLineEdit::textChanged,&b,&Buch::setRatingQt);
+            eingabe->setText(QString::number(b->getRating()));
+            connect(eingabe,&QLineEdit::textChanged,this,&Buchanzeige::changeRating);
             layout->addWidget(eingabe,i/2,i%2);
             break;
         case 17:
@@ -112,15 +113,14 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& b) : QWidget(parent)
             selector->addItem("English");
             selector->addItem("German");
             selector->addItem("NA");
-            selector->setCurrentIndex(b.getLanguage());
-            connect(selector,QOverload<int>::of(&QComboBox::currentIndexChanged),&b,&Buch::setLanguageQt);
+            selector->setCurrentIndex(b->getLanguage());
+            connect(selector,QOverload<int>::of(&QComboBox::currentIndexChanged),this,&Buchanzeige::changeLanguage);
             layout->addWidget(selector,i/2,i%2);
             break;
         case 19:
             notesIn = new QTextEdit(this);
-            notesIn->setText(QString::fromStdString(b.getNotes()));
-            connect(this,&Buchanzeige::changeSignal,&b,&Buch::setNotesQt);
-            connect(notesIn,&QTextEdit::textChanged,this,&Buchanzeige::changeNoteText);
+            notesIn->setText(QString::fromStdString(b->getNotes()));
+            connect(notesIn,&QTextEdit::textChanged,this,&Buchanzeige::changeNotes);
             layout->addWidget(notesIn,i/2,i%2);
             break;
         default:
@@ -129,6 +129,42 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& b) : QWidget(parent)
     }
 }
 
-void Buchanzeige::changeNoteText(){
-    emit changeSignal(notesIn->toPlainText());
+void Buchanzeige::changeTitle(const QString &t){
+    this->b->setTitle(t.toStdString());
+}
+
+void Buchanzeige::changeSubtitle(const QString &s){
+    this->b->setSubtitle(s.toStdString());
+}
+
+void Buchanzeige::changeAuthor(const QString &a){
+    this->b->setAuthor(a.toStdString());
+}
+
+void Buchanzeige::changeGenre(const int &g){
+    this->b->setGenre((Buch::GENRE)g);
+}
+
+void Buchanzeige::changePagecount(const QString &p){
+    this->b->setPagecount(p.toUInt());
+}
+
+void Buchanzeige::changeStartRead(const QDate& date) {
+    this->b->setStart((date.toString("yyyy.MM.dd")).toStdString());
+}
+
+void Buchanzeige::changeEndRead(const QDate &date){
+    this->b->setEnd((date.toString("yyyy.MM.dd")).toStdString());
+}
+
+void Buchanzeige::changeRating(const QString &r){
+    this->b->setRating(r.toFloat());
+}
+
+void Buchanzeige::changeLanguage(const int &l){
+    this->b->setLanguage((Buch::LANGUAGE)l);
+}
+
+void Buchanzeige::changeNotes(){
+    this->b->setNotes((notesIn->toPlainText()).toStdString());
 }
