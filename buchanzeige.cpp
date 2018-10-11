@@ -7,7 +7,6 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
     QLabel *label;
     QLineEdit *eingabe;
     QComboBox *selector;
-    QTextEdit *notesIn;
     QPushButton *dateButton;
     QCalendarWidget *calendar;
 
@@ -170,3 +169,14 @@ void Buchanzeige::changeEndRead(const QDate &date){
     this->b.setEnd(date.year*10000+date.month*100+date.day);
 }
 
+void Buchanzeige::changeRating(const QString &r){
+    this->b.setRating(QString::toFloat(r));
+}
+
+void Buchanzeige::changeLanguage(const int &l){
+    this->b.setLanguage(l);
+}
+
+void Buchanzeige::changeNotes(){
+    this->b.setNotes(QString::toStdString(notesIn->toPlainText));
+}

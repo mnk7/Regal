@@ -23,6 +23,7 @@ signals:
 
 private:
     Buch b;
+    QTextEdit *notesIn;
     void openStartCalendar();
     void openEndCalendar();
     void changeTitle(const QString&);
