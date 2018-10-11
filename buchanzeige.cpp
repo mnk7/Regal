@@ -2,6 +2,7 @@
 
 Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
 {
+    b=book;
     QGridLayout *layout = new QGridLayout(this);
     QLabel *label;
     QLineEdit *eingabe;
@@ -92,13 +93,13 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
         case 11:
             dateButton = new QPushButton(this);
             dateButton->setText(QString::number(book.getStartRead()/10000)+"/"+QString::number((book.getStartRead()%10000)/100)+"/"+QString::number(book.getStartRead()%100));
-            connect(dateButton, &QPushButton::clicked, this, &Buchanzeige::openCalendar);
+            connect(dateButton, &QPushButton::clicked, this, &Buchanzeige::openStartCalendar);
             layout->addWidget(dateButton, i/2, i%2);
             break;
         case 13:
             dateButton = new QPushButton(this);
             dateButton->setText(QString::number(book.getEndRead()/10000)+"/"+QString::number((book.getEndRead()%10000)/100)+"/"+QString::number(book.getEndRead()%100));
-            connect(dateButton, &QPushButton::clicked, this, &Buchanzeige::openCalendar);
+            connect(dateButton, &QPushButton::clicked, this, &Buchanzeige::openEndCalendar);
             layout->addWidget(dateButton, i/2, i%2);
             break;
         case 15:
@@ -129,10 +130,43 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
 }
 
 
-void Buchanzeige::openCalendar() {
+void Buchanzeige::openStartCalendar() {
+    QCalendarWidget *calendar = new QCalendarWidget(sender());
+    connect(calendar, &QCalendarWidget::clicked, this, changeStartRead);
+    connect(calendar, &QCalendarWidget::activated, calendar, &QCalendarWidget::~QCalendarWidget);
+}
 
+void Buchanzeige::openEndCalendar() {
+    QCalendarWidget *calendar = new QCalendarWidget(sender());
+    connect(calendar, &QCalendarWidget::clicked, this, changeEndRead);
+    connect(calendar, &QCalendarWidget::activated, calendar, &QCalendarWidget::~QCalendarWidget);
+}
+
+void Buchanzeige::changeTitle(const QString &t){
+    this->b.setTitle(QString::toStdString(t));
+}
+
+void Buchanzeige::changeSubtitle(const QString &s){
+    this->b.setSubtitle(QString::toStdString(s));
+}
+
+void Buchanzeige::changeAuthor(const QString &a){
+    this->b.setAuthor(QString::toStdString(a));
+}
+
+void Buchanzeige::changeGenre(const int &g){
+    this->b.setGenre(g);
+}
+
+void Buchanzeige::changePagecount(const QString &p){
+    this->b.setPagecount(QString::toUInt(p));
 }
 
 void Buchanzeige::changeStartRead(const QDate& date) {
-
+    this->b.setStart(date.year*10000+date.month*100+date.day);
 }
+
+void Buchanzeige::changeEndRead(const QDate &date){
+    this->b.setEnd(date.year*10000+date.month*100+date.day);
+}
+

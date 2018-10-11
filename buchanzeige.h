@@ -19,11 +19,12 @@ class Buchanzeige : public QWidget
 public:
     explicit Buchanzeige(QWidget *parent, Buch& book);
     ~Buchanzeige()=default;
-
 signals:
 
 private:
-    void openCalendar();
+    Buch b;
+    void openStartCalendar();
+    void openEndCalendar();
     void changeTitle(const QString&);
     void changeSubtitle(const QString&);
     void changeAuthor(const QString&);
