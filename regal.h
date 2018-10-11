@@ -26,10 +26,13 @@ private:
     std::vector<Buch> datenbank;
     QString path;
 
+    QWidget *menu;
     Stapel *hauptstapel;
 
     void getDatabase();
     void saveDatabase();
+
+    void resizeEvent(QResizeEvent*);
 
 };
 
