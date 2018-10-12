@@ -48,7 +48,8 @@ private:
     std::string subtitle="";
     std::string author="";
     GENRE genre=none;
-    unsigned int pagecount="0000.00.00";
+    unsigned int pagecount=0;
+    std::string startRead="0000.00.00";
     std::string endRead="0000.00.00";
     float rating=0;
     LANGUAGE language=NA;
