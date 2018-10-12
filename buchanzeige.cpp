@@ -13,34 +13,34 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
             label = new QLabel(this);
             switch(i){
             case 0:
-                label->setText("Title");
+                label->setText("Titel");
                 break;
             case 2:
-                label->setText("Subtitle");
+                label->setText("Untertitel");
                 break;
             case 4:
-                label->setText("Author");
+                label->setText("Autor");
                 break;
             case 6:
                 label->setText("Genre");
                 break;
             case 8:
-                label->setText("Pages");
+                label->setText("Seitenzahl");
                 break;
             case 10:
-                label->setText("Started Reading");
+                label->setText("Angefangen");
                 break;
             case 12:
-                label->setText("Finished Reading");
+                label->setText("Beendet");
                 break;
             case 14:
-                label->setText("Rating");
+                label->setText("Bewertung");
                 break;
             case 16:
-                label->setText("Language");
+                label->setText("Sprache");
                 break;
             case 18:
-                label->setText("Notes");
+                label->setText("Anmerkungen");
                 break;
             default:
                 label->setText("This should not have happened!");
@@ -74,10 +74,10 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
             selector->addItem("Fantasy");
             selector->addItem("Literary Fiction");
             selector->addItem("Thriller");
-            selector->addItem("Politics");
-            selector->addItem("Philosophy");
-            selector->addItem("Biography");
-            selector->addItem("none");
+            selector->addItem("Politik");
+            selector->addItem("Philosophie");
+            selector->addItem("Biographie");
+            selector->addItem("keines");
             selector->setCurrentIndex(b->getGenre());
             connect(selector,QOverload<int>::of(&QComboBox::currentIndexChanged),this,&Buchanzeige::changeGenre);
             layout->addWidget(selector,i/2,i%2);
@@ -110,8 +110,8 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
             break;
         case 17:
             selector = new QComboBox(this);
-            selector->addItem("English");
-            selector->addItem("German");
+            selector->addItem("Englisch");
+            selector->addItem("Deutsch");
             selector->addItem("NA");
             selector->setCurrentIndex(b->getLanguage());
             connect(selector,QOverload<int>::of(&QComboBox::currentIndexChanged),this,&Buchanzeige::changeLanguage);
