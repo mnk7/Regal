@@ -47,6 +47,7 @@ Regal::Regal(QWidget *parent)
 
     scroller = new QScrollArea();
     scroller->setWidgetResizable(true);
+    scroller->setFrameShape(QFrame::NoFrame);
     scroller->setWidget(hauptstapel);
     this->layout()->addWidget(scroller);
 

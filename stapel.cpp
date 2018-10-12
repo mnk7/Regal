@@ -5,7 +5,7 @@ Stapel::Stapel(QWidget *parent, std::vector<Buch> &d) : QWidget(parent)
 {
     datenbank = &d;
 
-    this->setLayout(new FlowLayout());
+    this->setLayout(new FlowLayout(1, 1, 1));
 
     buecher.resize(datenbank->size());
     for(decltype (datenbank->size()) i = 0; i < datenbank->size(); ++i) {
