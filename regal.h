@@ -10,7 +10,6 @@
 #include <QScrollArea>
 #include <QDir>
 #include <QSpacerItem>
-#include <QMessageBox>
 
 #include <vector>
 
