@@ -51,7 +51,7 @@ private:
     unsigned int pagecount;
     std::string startRead;
     std::string endRead;
-    float rating;
+    float rating=0;
     LANGUAGE language;
     std::string notes;
     bool deleted=false;
