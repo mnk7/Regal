@@ -69,7 +69,7 @@ void StapelElement::setzeTitel() {
 }
 
 void StapelElement::setzeIcon() {
-    if(buch->getPath() != ""){
+    if(buch->getPath().size() > 0){
         QPixmap icon(QString::fromStdString(buch->getPath()));
     } else {
         QPixmap icon(":/Bilder/Buch");
