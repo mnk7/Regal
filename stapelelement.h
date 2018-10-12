@@ -16,8 +16,6 @@ class StapelElement : public QWidget
 public:
     explicit StapelElement(QWidget *parent, Buch &b);
 
-signals:
-
 private:
     Buch *buch;
 
