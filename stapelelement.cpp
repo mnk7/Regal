@@ -48,7 +48,7 @@ void StapelElement::update() {
 void StapelElement::showContextMenu(const QPoint &p) {
     QMenu contextMenu(tr("Context menu"), this);
 
-    QAction action1("Neues Buch", this);
+    QAction action1("Entferne Buch", this);
     connect(&action1, &QAction::triggered, this, &StapelElement::entferne);
     contextMenu.addAction(&action1);
 
@@ -64,7 +64,7 @@ void StapelElement::setzeTitel() {
     QString titel = QString::fromStdString(buch->getTitle());
     if(titel.size() > 15) {
         titel.resize(15);
-        titel.replace(12, 3, '.');
+        titel.replace(12, 3, "...");
     }
 
     beschriftung->setText(titel);
