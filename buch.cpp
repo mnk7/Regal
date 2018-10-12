@@ -120,6 +120,14 @@ bool Buch::entfernt() const{
     return deleted;
 }
 
+void Buch::setPath(const std::string &p){
+    path=p;
+}
+
+std::string& Buch::getPath() const{
+    return path;
+}
+
 Buch::GENRE Buch::stringtogenre(const std::string x){
     if(x=="SciFi") return SciFi;
     else if(x=="Fantasy") return Fantasy;

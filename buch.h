@@ -36,6 +36,9 @@ public:
     void setEntfernt();
     bool entfernt() const;
 
+    void setPath(const std::string&);
+    std::string& getPath() const;
+
     GENRE stringtogenre(const std::string);
     LANGUAGE stringtolanguage(const std::string);
     const std::string genretostring(const GENRE&) const;
@@ -55,6 +58,8 @@ private:
     LANGUAGE language=NA;
     std::string notes="";
     bool deleted=false;
+
+    std::string path="";
 
 };
 
