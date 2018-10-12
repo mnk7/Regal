@@ -141,3 +141,419 @@ language=English
 notes=
 path=
 }
+shutterIsland{
+title=Shutter Island
+subtitle=
+author=Dennis Lehane
+genre=Crime/Thriller
+pagecount=416
+startread=2018.03.28
+endread=2018.03.30
+rating=7
+language=English
+notes=
+path=
+}
+hobbesLeviathan{
+title=Leviathan
+subtitle=
+author=Thomas Hobbes
+genre=Philosophy
+pagecount=392
+startread=2018.03.30
+endread=2018.04.09
+rating=6
+language=English
+notes=
+path=
+}
+fightClub{
+title=Fight Club
+subtitle=
+author=Chuck Palahniuk
+genre=Crime/Thriller
+pagecount=224
+startread=2018.04.09
+endread=2018.04.13
+rating=7.5
+language=English
+notes=
+path=
+}
+humeTreatise{
+title=A Treatise of Human Nature
+subtitle=
+author=David Hume
+genre=Philosophy
+pagecount=376
+startread=2018.04.13
+endread=2018.04.19
+rating=8
+language=English
+notes=
+path=
+}
+lucenoCatalyst{
+title=Catalyst
+subtitle=A Rogue One Novel
+author=James Luceno
+genre=SciFi
+pagecount=496
+startread=2018.04.19
+endread=2018.04.26
+rating=8.5
+language=English
+notes=
+path=
+}
+comeyLoyalty{
+title=A Higher Loyalty
+subtitle=Truth, Lies and Leadership
+author=James Comey
+genre=Politics
+pagecount=293
+startread=2018.04.26
+endread=2018.04.29
+rating=7.5
+language=English
+notes=
+path=
+}
+darkDisciple{
+title=Dark Disciple
+subtitle=
+author=Christie Golden
+genre=SciFi
+pagecount=400
+startread=2018.04.29
+endread=2018.05.04
+rating=7
+language=English
+notes=
+path=
+}
+warOnPeace{
+title=War on Peace
+subtitle=The End of Diplomacy and the Decline of American Influence
+author=Ronan Farrow
+genre=Politics
+pagecount=424
+startread=2018.05.04
+endread=2018.05.14
+rating=10
+language=English
+notes=
+path=
+}
+ahsoka{
+title=Ahsoka
+subtitle=
+author=E. K. Johnston
+genre=SciFi
+pagecount=400
+startread=2018.05.14
+endread=2018.05.18
+rating=7
+language=English
+notes=
+path=
+}
+humeEnquiryHU{
+title=Enquiry Concerning Human Understanding
+subtitle=
+author=David Hume
+genre=Philosophy
+pagecount=238
+startread=2018.05.18
+endread=2018.05.22
+rating=8
+language=English
+notes=
+path=
+}
+seasonStorms{
+title=Season of Storms
+subtitle=
+author=Andrzej Sapkowski
+genre=Fantasy
+pagecount=368
+startread=2018.05.22
+endread=2018.05.29
+rating=3.5
+language=English
+notes=
+path=
+}
+humeEnquiryPM{
+title=Enquiry Concerning Principles of Morals
+subtitle=
+author=David Hume
+genre=Philosophy
+pagecount=260
+startread=2018.05.29
+endread=2018.06.01
+rating=9.5
+language=English
+notes=
+path=
+}
+lordsSith{
+title=Lords of the Sith
+subtitle=
+author=Paul Kemp
+genre=SciFi
+pagecount=368
+startread=2018.06.01
+endread=2018.06.06
+rating=8.5
+language=English
+notes=
+path=
+}
+humeEssays{
+title=Essays
+subtitle=Moral, Political & Literary
+author=David Hume
+genre=Philosophy
+pagecount=684
+startread=2018.06.06
+endread=2018.06.15
+rating=7.5
+language=English
+notes=
+path=
+}
+feynmanBio{
+title=Surely You're Joking, Mr. Feynman!
+subtitle=Adventures of a Curious Character
+author=Richard Feynman
+genre=Biography
+pagecount=352
+startread=2018.06.15
+endread=2018.06.22
+rating=9.5
+language=English
+notes=
+path=
+}
+tarkin{
+title=Tarkin
+subtitle=
+author=James Luceno
+genre=SciFi
+pagecount=352
+startread=2018.06.22
+endread=2018.06.29
+rating=8
+language=English
+notes=
+path=
+}
+dornLeitfaden{
+title=deutsch, nicht dumpf
+subtitle=Ein Leitfaden für aufgeklärte Patrioten
+author=Thea Dorn
+genre=Politics
+pagecount=337
+startread=2018.06.29
+endread=2018.07.03
+rating=9
+language=German
+notes=
+path=
+}
+carsonSolo{
+title=Solo
+subtitle=Most Wanted
+author=Rae Carson
+genre=SciFi
+pagecount=348
+startread=2018.07.03
+endread=2018.07.07
+rating=7
+language=English
+notes=
+path=
+}
+marxHegel{
+title=Zur Kritik der Hegelschen Rechtsphilosophie
+subtitle=
+author=Karl Marx
+genre=Philosophy
+pagecount=162
+startread=2018.07.07
+endread=2018.07.14
+rating=6.5
+language=German
+notes=
+path=
+}
+rebelRising{
+title=Rebel Rising
+subtitle=
+author=Beth Revis
+genre=SciFi
+pagecount=416
+startread=2018.07.14
+endread=2018.07.17
+rating=9
+language=English
+notes=
+path=
+}
+deutscheId1{
+title=Die deutsche Ideologie
+subtitle=Band I
+author=Karl Marx, Friedrich Engels
+genre=Philosophy
+pagecount=440
+startread=2018.07.17
+endread=2018.07.30
+rating=8.5
+language=German
+notes=Seitenzahl der Gesamtausgabe
+path=
+}
+thrawn{
+title=Thrawn
+subtitle=
+author=Timothy Zahn
+genre=SciFi
+pagecount=496
+startread=2018.07.30
+endread=2018.08.05
+rating=8.5
+language=English
+notes=
+path=
+}
+deutscheId2{
+title=Die deutsche Ideologie
+subtitle=Band II
+author=Karl Marx, Friedrich Engels
+genre=Philosophy
+pagecount=0
+startread=2018.08.05
+endread=2018.08.06
+rating=7
+language=German
+notes=
+path=
+}
+discoSour{
+title=Disco Sour
+subtitle=
+author=Giuseppe Porcaro
+genre=
+pagecount=124
+startread=2018.08.06
+endread=2018.08.07
+rating=2.5
+language=English
+notes=
+path=
+}
+manifestKP{
+title=Manifest der kommunistischen Partei
+subtitle=
+author=Karl Marx, Friedrich Engels
+genre=Politics
+pagecount=60
+startread=2018.08.07
+endread=2018.08.09
+rating=9.5
+language=German
+notes=Proletarier aller Länder, vereinigt Euch!
+path=
+}
+jjmNewDawn{
+title=A New Dawn
+subtitle=
+author=John Jackson Miller
+genre=SciFi
+pagecount=416
+startread=2018.08.09
+endread=2018.08.13
+rating=6.5
+language=English
+notes=
+path=
+}
+kapital1{
+title=Das Kapital
+subtitle=Band I
+author=Karl Marx
+genre=Politics
+pagecount=2776
+startread=2018.08.13
+endread=2018.09.07
+rating=10
+language=German
+notes=Seitenzahl der Gesamtausgabe
+path=
+}
+lostStars{
+title=Lost Stars
+subtitle=
+author=Claudia Gray
+genre=SciFi
+pagecount=560
+startread=2018.09.07
+endread=2018.09.12
+rating=7.5
+language=English
+notes=
+path=
+}
+kapital2{
+title=Das Kapital
+subtitle=Band II
+author=Karl Marx
+genre=Politics
+pagecount=0
+startread=2018.09.12
+endread=2018-09.27
+rating=9
+language=German
+notes=
+path=
+}
+swbf1{
+title=Star Wars: Battlefront I
+subtitle=Twilight Company
+author=Alexander Freed
+genre=SciFi
+pagecount=496
+startread=2018.09.27
+endread=2018.09.30
+rating=7.5
+language=English
+notes=
+path=
+}
+woodwardFear{
+title=Fear
+subtitle=Trump Inside the White House
+author=Bob Woodward
+genre=Politics
+pagecount=420
+startread=2018.09.30
+endread=2018.10.03
+rating=8
+language=English
+notes=
+path=
+}
+leia{
+title=Leia
+subtitle=Princess of Alderaan
+author=Claudia Gray
+genre=SciFi
+pagecount=416
+startread=2018.10.03
+endread=2018.10.07
+rating=7.5
+language=English
+notes=
+path=
+}
