@@ -5,6 +5,7 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QLabel>
+#include <QMenu>
 
 #include "buch.h"
 #include "buchanzeige.h"
@@ -27,6 +28,8 @@ private:
 
     void clicked();
     void update();
+    void showContextMenu(const QPoint &);
+    void entferne();
 };
 
 #endif // STAPELELEMENT_H

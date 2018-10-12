@@ -8,6 +8,7 @@
 #include <QApplication>
 #include <QScreen>
 #include <QScrollArea>
+#include <QDir>
 
 #include <vector>
 
