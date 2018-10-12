@@ -83,6 +83,6 @@ void printBuch(std::ostream &os, const Buch &b) {
     os << "endread=" << b.getEndRead() << std::endl;  
     os << "rating=" << b.getRating() << std::endl;
     os << "language=" << b.languagetostring(b.getLanguage()) << std::endl;
+    os << "path=" << b.getPath() << std::endl;
     os << "notes=" << b.getNotes() << std::endl << "}" << std::endl;
-    os << "path=" << b.getPath() << std::endl << "}" << std::endl;
 }

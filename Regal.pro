@@ -51,7 +51,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 DISTFILES += \
     datenbank \
     Buch.png \
-    Stapel.png
+    Stapel.png \
+    bookDB
 
 RESOURCES += \
     images.qrc
