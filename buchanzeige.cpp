@@ -3,7 +3,13 @@
 Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
 {
     b = &book;
+    outer = new QVBoxLayout(this);
+    iconKnopf = new QPushButton(this);
+    iconKnopf->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    outer->addWidget(iconKnopf);
     layout = new QGridLayout(this);
+    outer->addLayout(layout);
     QLabel *label;
     QLineEdit *eingabe;
     QComboBox *selector;
@@ -177,4 +183,18 @@ void Buchanzeige::changeLanguage(const int &l){
 void Buchanzeige::changeNotes(){
     this->b->setNotes((notesIn->toPlainText()).toStdString());
     emit Buchanzeige::changed();
+}
+
+
+void Buchanzeige::setzeIcon() {
+    if(book->getPath().size() > 0){
+        QPixmap icon(QString::fromStdString(buch->getPath()));
+    } else {
+        QPixmap icon(":/Bilder/Buch");
+    }
+
+    icon = icon.scaled(physicalDpiY() / 2,physicalDpiY() / 2);
+
+    knopf->setIcon(icon);
+    knopf->setIconSize(QSize(icon.width(), icon.height()));
 }

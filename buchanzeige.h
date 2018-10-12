@@ -12,6 +12,7 @@
 #include <QDateEdit>
 #include <QDate>
 #include <QtGlobal>
+#include <QVBoxLayout>
 
 class Buchanzeige : public QWidget
 {
@@ -24,6 +25,8 @@ signals:
 
 private:
     Buch *b;
+    QPushButton *iconKnopf;
+    QVBoxLayout *outer;
     QGridLayout *layout;
     QTextEdit *notesIn;
     QDateEdit *startCalendar;
@@ -39,6 +42,7 @@ private:
     void changeRating(const QString&);
     void changeLanguage(const int&);
     void changeNotes();
+    void setzteIcon();
 };
 
 #endif // BUCHANZEIGE_H
