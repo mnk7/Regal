@@ -6,6 +6,7 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
     outer = new QVBoxLayout(this);
     iconKnopf = new QPushButton(this);
     iconKnopf->setFlat(true);
+    setzeIcon();
     iconKnopf->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     connect(iconKnopf, &QPushButton::clicked, this, &Buchanzeige::chooseIcon);
 
@@ -207,15 +208,15 @@ void Buchanzeige::setzeIcon() {
 void Buchanzeige::chooseIcon(){
     auto pfad = QFileDialog::getOpenFileName(
                 this, "Lade Icon",
-                QDir::home().absolutePath(), "Images (*.png *.jpg)");
+                QDir::home().absolutePath());
 
-    /**QFileInfo check_file(pfad);
+    QFileInfo check_file(pfad);
     // check if file exists and if yes: Is it really a file and no directory?
     if (check_file.exists() && check_file.isFile()) {
         b->setPath(pfad.toStdString());
     } else {
         pfad = "";
-    }**/
+    }
 
     setzeIcon();
 }
