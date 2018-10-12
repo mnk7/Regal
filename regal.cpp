@@ -47,7 +47,7 @@ Regal::Regal(QWidget *parent)
 
     this->layout()->addWidget(menu);
 
-    hauptstapel = new Stapel(this, datenbank);
+    hauptstapel = new Stapel(this, &datenbank);
     hauptstapel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     scroller = new QScrollArea();
@@ -77,7 +77,7 @@ void Regal::getDatabase() {
         datenbank = loadData(path.toStdString());
         this->layout()->removeWidget(hauptstapel);
         delete hauptstapel;
-        hauptstapel = new Stapel(this, datenbank);
+        hauptstapel = new Stapel(this, &datenbank);
         hauptstapel->setSizePolicy(QSizePolicy::Expanding,
                                    QSizePolicy::Expanding);
         scroller->setWidget(hauptstapel);

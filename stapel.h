@@ -16,7 +16,7 @@ class Stapel : public QWidget
 {
     Q_OBJECT
 public:
-    explicit Stapel(QWidget *parent, std::vector<Buch> &d);
+    explicit Stapel(QWidget *parent, std::vector<Buch> *d);
     ~Stapel();
 
 private:

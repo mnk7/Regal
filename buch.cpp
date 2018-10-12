@@ -2,18 +2,6 @@
 
 Buch::Buch(std::string h){
     handle=h;
-    title="";
-    subtitle="";
-    author="";
-    genre=none;
-    pagecount=0;
-    startRead="0000.00.00";
-    endRead="0000.00.00";
-    rating=0;
-    language=NA;
-    notes="";
-    deleted=false;
-    path="";
 }
 
 Buch::Buch(const Buch &b){

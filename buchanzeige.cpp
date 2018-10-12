@@ -201,7 +201,7 @@ void Buchanzeige::setzeIcon() {
 
     iconKnopf->setIcon(*icon);
     iconKnopf->setIconSize(QSize(icon->width(), icon->height()));
-    emit Buchanzeige::changed();
+    emit Buchanzeige::iconChanged();
 }
 
 void Buchanzeige::chooseIcon(){

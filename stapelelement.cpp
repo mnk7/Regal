@@ -23,6 +23,8 @@ StapelElement::StapelElement(QWidget *parent, Buch &b)
     anzeige = new Buchanzeige(nullptr, *buch);
     anzeige->setVisible(false);
     connect(anzeige, &Buchanzeige::changed, this, &StapelElement::update);
+    connect(anzeige, &Buchanzeige::iconChanged,
+            this, &StapelElement::setzeIcon);
 
     this->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 
@@ -40,7 +42,6 @@ void StapelElement::clicked() {
 
 void StapelElement::update() {
     setzeTitel();
-    setzeIcon();
 }
 
 void StapelElement::showContextMenu(const QPoint &p) {

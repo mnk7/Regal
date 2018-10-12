@@ -24,6 +24,7 @@ public:
     ~Buchanzeige()=default;
 signals:
     void changed();
+    void iconChanged();
 
 private:
     Buch *b;

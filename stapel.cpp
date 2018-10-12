@@ -1,9 +1,9 @@
 #include "stapel.h"
 #include <iostream>
 
-Stapel::Stapel(QWidget *parent, std::vector<Buch> &d) : QWidget(parent)
+Stapel::Stapel(QWidget *parent, std::vector<Buch> *d) : QWidget(parent)
 {
-    datenbank = &d;
+    datenbank = d;
 
     this->setLayout(new FlowLayout(1, 1, 1));
 
@@ -43,7 +43,8 @@ void Stapel::neuesBuch() {
     if (ok && !text.isEmpty()) {
         Buch b(text.toStdString());
         datenbank->push_back(b);
-        buecher.push_back(new StapelElement(this, b));
+        buecher.push_back(new StapelElement(this,
+                                            datenbank->at(datenbank->size() - 1)));
         this->layout()->addWidget(buecher.at(buecher.size() - 1));
     }
 }
