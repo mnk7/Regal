@@ -32,7 +32,15 @@ SOURCES += \
     buchanzeige.cpp \
     helfer.cpp \
     stapelelement.cpp \
-    flowlayout.cpp
+    flowlayout.cpp \
+    buch.cpp \
+    buchanzeige.cpp \
+    flowlayout.cpp \
+    helfer.cpp \
+    main.cpp \
+    regal.cpp \
+    stapel.cpp \
+    stapelelement.cpp
 
 HEADERS += \
         regal.h \
@@ -41,7 +49,14 @@ HEADERS += \
     buchanzeige.h \
     helfer.h \
     stapelelement.h \
-    flowlayout.h
+    flowlayout.h \
+    buch.h \
+    buchanzeige.h \
+    flowlayout.h \
+    helfer.h \
+    regal.h \
+    stapel.h \
+    stapelelement.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -52,7 +67,16 @@ DISTFILES += \
     datenbank \
     Buch.png \
     Stapel.png \
-    bookDB
+    bookDB \
+    Stapel.png \
+    bookDB \
+    datenbank \
+    Datenbank2 \
+    LICENSE
 
 RESOURCES += \
+    images.qrc \
     images.qrc
+
+SUBDIRS += \
+    Regal.pro

@@ -18,6 +18,7 @@ Regal::Regal(QWidget *parent)
     menu->setLayout(new QHBoxLayout());
     menu->layout()->setContentsMargins(0, 0, 0, 0);
     menu->layout()->setAlignment(Qt::AlignCenter);
+    menu->setFixedHeight(physicalDpiY() / 4);
 
     QPushButton *neu = new QPushButton(this);
     neu->setText("Neues Regal");
@@ -32,6 +33,10 @@ Regal::Regal(QWidget *parent)
     load->setFixedWidth(physicalDpiX());
     menu->layout()->addWidget(load);
     connect(load, &QPushButton::clicked, this, &Regal::getDatabase);
+
+    menu->layout()->addItem(new QSpacerItem(0, neu->height(),
+                                            QSizePolicy::Expanding,
+                                            QSizePolicy::Minimum));
 
     QPushButton *save = new QPushButton(this);
     save->setText("Speichern");
