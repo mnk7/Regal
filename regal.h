@@ -9,6 +9,7 @@
 #include <QScreen>
 #include <QScrollArea>
 #include <QDir>
+#include <QSpacerItem>
 
 #include <vector>
 
