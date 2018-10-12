@@ -19,6 +19,13 @@ Regal::Regal(QWidget *parent)
     menu->layout()->setContentsMargins(0, 0, 0, 0);
     menu->layout()->setAlignment(Qt::AlignCenter);
 
+    QPushButton *neu = new QPushButton(this);
+    neu->setText("Neues Regal");
+    neu->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+    neu->setFixedWidth(physicalDpiX());
+    menu->layout()->addWidget(neu);
+    connect(neu, &QPushButton::clicked, this, &Regal::newDatabase);
+
     QPushButton *load = new QPushButton(this);
     load->setText("Laden");
     load->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
@@ -50,6 +57,11 @@ Regal::~Regal()
 {
 }
 
+void Regal::newDatabase() {
+    path = QFileDialog::getSaveFileName(this, "Neue Datenbank",
+                                        QDir::home().absolutePath());
+}
+
 void Regal::getDatabase() {
     path = QFileDialog::getOpenFileName(this, "Lade Datenbank",
                                         QDir::home().absolutePath());
@@ -70,7 +82,9 @@ void Regal::getDatabase() {
 }
 
 void Regal::saveDatabase() {
-    if(path.size() != 0) {
-        saveData(path.toStdString(), datenbank);
+    if(path.size() < 1) {
+        path = QFileDialog::getSaveFileName(this, "Neue Datenbank",
+                                            QDir::home().absolutePath());
     }
+    saveData(path.toStdString(), datenbank);
 }

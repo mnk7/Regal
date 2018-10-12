@@ -32,6 +32,7 @@ private:
     Stapel *hauptstapel;
     QScrollArea *scroller;
 
+    void newDatabase();
     void getDatabase();
     void saveDatabase();
 
