@@ -201,14 +201,13 @@ void Buchanzeige::setzeIcon() {
 
     iconKnopf->setIcon(*icon);
     iconKnopf->setIconSize(QSize(icon->width(), icon->height()));
-    emit update();
-    emit changed();
+    emit Buchanzeige::changed();
 }
 
 void Buchanzeige::chooseIcon(){
     auto pfad = QFileDialog::getOpenFileName(
                 this, "Lade Icon",
-                QDir::home().absolutePath(), tr("Images (*.png *.xpm *.jpg)"));
+                QDir::home().absolutePath(), tr("Images (*.png *.PNG *.xpm *.XPM *.jpg *.JPG)"));
 
     QFileInfo check_file(pfad);
     // check if file exists and if yes: Is it really a file and no directory?
