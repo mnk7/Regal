@@ -80,10 +80,6 @@ void Regal::getDatabase() {
                                    QSizePolicy::Expanding);
         scroller->setWidget(hauptstapel);
         this->layout()->addWidget(scroller);
-    } else {
-        if(datenbank.size() == 0) {
-            exit(2);
-        }
     }
 }
 
