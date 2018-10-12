@@ -36,7 +36,9 @@ std::vector<Buch> loadData(const std::string path) {
             } else if(label == "endread") {
                 b.setEnd(value);
             } else if(label == "rating") {
+                std::setlocale(LC_NUMERIC,"en_US.UTF-8");
                 b.setRating(static_cast<float>(std::stof(value)));
+                std::setlocale(LC_NUMERIC,"de_DE.UTF-8");
             } else if(label == "language") {
                 b.setLanguage(b.stringtolanguage(value));
             } else if(label == "notes") {
@@ -76,7 +78,7 @@ void printBuch(std::ostream &os, const Buch &b) {
     os << "genre=" << b.genretostring(b.getGenre()) << std::endl;
     os << "pagecount=" << b.getPagecount() << std::endl;
     os << "startread=" << b.getStartRead() << std::endl;
-    os << "endread=" << b.getEndRead() << std::endl;
+    os << "endread=" << b.getEndRead() << std::endl;  
     os << "rating=" << b.getRating() << std::endl;
     os << "language=" << b.languagetostring(b.getLanguage()) << std::endl;
     os << "notes=" << b.getNotes() << std::endl << "}" << std::endl;
