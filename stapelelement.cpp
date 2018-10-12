@@ -19,7 +19,7 @@ StapelElement::StapelElement(QWidget *parent, Buch &b)
     this->layout()->addWidget(knopf);
 
     beschriftung = new QLabel(this);
-    beschriftung->setText(QString::fromStdString(buch->getTitle()));
+    setzeTitel();
     beschriftung->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     this->layout()->addWidget(beschriftung);
 
@@ -42,7 +42,7 @@ void StapelElement::clicked() {
 }
 
 void StapelElement::update() {
-    beschriftung->setText(QString::fromStdString(buch->getTitle()));
+    setzeTitel();
 }
 
 void StapelElement::showContextMenu(const QPoint &p) {
@@ -58,6 +58,16 @@ void StapelElement::showContextMenu(const QPoint &p) {
 void StapelElement::entferne() {
     buch->setEntfernt();
     this->setVisible(false);
+}
+
+void StapelElement::setzeTitel() {
+    QString titel = QString::fromStdString(buch->getTitle());
+    if(titel.size() > 15) {
+        titel.resize(15);
+        titel.replace(12, 3, '.');
+    }
+
+    beschriftung->setText(titel);
 }
 
 
