@@ -10,6 +10,7 @@ Regal::Regal(QWidget *parent)
                       60 * size.width() / physicalDpiX(),
                       50 * size.height() / physicalDpiY());
 
+    this->setWindowIcon(QIcon(QPixmap(":/Bilder/Stapel")));
     this->setLayout(new QVBoxLayout());
     this->layout()->setContentsMargins(0, 0, 0, 0);
 
