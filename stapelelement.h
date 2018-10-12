@@ -31,6 +31,7 @@ private:
     void showContextMenu(const QPoint &);
     void entferne();
     void setzeTitel();
+    void setzeIcon();
 };
 
 #endif // STAPELELEMENT_H

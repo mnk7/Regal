@@ -6,16 +6,9 @@ StapelElement::StapelElement(QWidget *parent, Buch &b)
     buch = &b;
     this->setLayout(new QVBoxLayout());
 
-    if(b.getPath()!=""){
-    QPixmap icon(b.getPath());
-    } else QPixmap icon(":/Bilder/Buch");
-
-    icon = icon.scaled(physicalDpiY() / 2,physicalDpiY() / 2);
-
     knopf = new QPushButton(this);
     knopf->setFlat(true);
-    knopf->setIcon(icon);
-    knopf->setIconSize(QSize(icon.width(), icon.height()));
+    setzeIcon();
     knopf->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     knopf->connect(knopf, &QPushButton::clicked,
                      this, &StapelElement::clicked);
@@ -47,6 +40,7 @@ void StapelElement::clicked() {
 
 void StapelElement::update() {
     setzeTitel();
+    setzeIcon();
 }
 
 void StapelElement::showContextMenu(const QPoint &p) {
@@ -72,6 +66,19 @@ void StapelElement::setzeTitel() {
     }
 
     beschriftung->setText(titel);
+}
+
+void StapelElement::setzeIcon() {
+    if(buch->getPath() != ""){
+        QPixmap icon(QString::fromStdString(buch->getPath()));
+    } else {
+        QPixmap icon(":/Bilder/Buch");
+    }
+
+    icon = icon.scaled(physicalDpiY() / 2,physicalDpiY() / 2);
+
+    knopf->setIcon(icon);
+    knopf->setIconSize(QSize(icon.width(), icon.height()));
 }
 
 
