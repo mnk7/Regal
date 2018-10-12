@@ -64,9 +64,23 @@ Regal::~Regal()
 {
 }
 
+void Regal::createNewHauptstapel() {
+    this->layout()->removeWidget(hauptstapel);
+    delete hauptstapel;
+    hauptstapel = new Stapel(this, &datenbank);
+    hauptstapel->setSizePolicy(QSizePolicy::Expanding,
+                               QSizePolicy::Expanding);
+    scroller->setWidget(hauptstapel);
+    this->layout()->addWidget(scroller);
+}
+
 void Regal::newDatabase() {
     path = QFileDialog::getSaveFileName(this, "Neue Datenbank",
                                         QDir::home().absolutePath());
+    if(!datenbank.empty()) {
+        datenbank.clear();
+        createNewHauptstapel();
+    }
 }
 
 void Regal::getDatabase() {
@@ -74,20 +88,14 @@ void Regal::getDatabase() {
                                         QDir::home().absolutePath());
     if(path.size() > 0) {
         datenbank = loadData(path.toStdString());
-        this->layout()->removeWidget(hauptstapel);
-        delete hauptstapel;
-        hauptstapel = new Stapel(this, &datenbank);
-        hauptstapel->setSizePolicy(QSizePolicy::Expanding,
-                                   QSizePolicy::Expanding);
-        scroller->setWidget(hauptstapel);
-        this->layout()->addWidget(scroller);
+        createNewHauptstapel();
     }
 }
 
 void Regal::saveDatabase() {
     if(path.size() < 1) {
-        path = QFileDialog::getSaveFileName(this, "Neue Datenbank",
-                                            QDir::home().absolutePath());
+        newDatabase();
     }
+
     saveData(path.toStdString(), datenbank);
 }

@@ -10,6 +10,7 @@
 #include <QScrollArea>
 #include <QDir>
 #include <QSpacerItem>
+#include <QMessageBox>
 
 #include <vector>
 
@@ -33,6 +34,7 @@ private:
     Stapel *hauptstapel;
     QScrollArea *scroller;
 
+    void createNewHauptstapel();
     void newDatabase();
     void getDatabase();
     void saveDatabase();
