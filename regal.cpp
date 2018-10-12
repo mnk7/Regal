@@ -51,7 +51,8 @@ Regal::~Regal()
 }
 
 void Regal::getDatabase() {
-    path = QFileDialog::getOpenFileName(this, "Lade Datenbank", ".");
+    path = QFileDialog::getOpenFileName(this, "Lade Datenbank",
+                                        QDir::home().absolutePath());
     if(path.size() > 0) {
         datenbank = loadData(path.toStdString());
         this->layout()->removeWidget(hauptstapel);

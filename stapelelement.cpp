@@ -28,6 +28,11 @@ StapelElement::StapelElement(QWidget *parent, Buch &b)
     connect(anzeige, &Buchanzeige::changed, this, &StapelElement::update);
 
     this->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+
+    this->setContextMenuPolicy(Qt::CustomContextMenu);
+
+    connect(this, &StapelElement::customContextMenuRequested,
+            this, &StapelElement::showContextMenu);
 }
 
 
@@ -38,6 +43,21 @@ void StapelElement::clicked() {
 
 void StapelElement::update() {
     beschriftung->setText(QString::fromStdString(buch->getTitle()));
+}
+
+void StapelElement::showContextMenu(const QPoint &p) {
+    QMenu contextMenu(tr("Context menu"), this);
+
+    QAction action1("Neues Buch", this);
+    connect(&action1, &QAction::triggered, this, &StapelElement::entferne);
+    contextMenu.addAction(&action1);
+
+    contextMenu.exec(mapToGlobal(p));
+}
+
+void StapelElement::entferne() {
+    buch->setEntfernt();
+    this->setVisible(false);
 }
 
 

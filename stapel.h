@@ -3,6 +3,9 @@
 
 #include <QWidget>
 #include <QPushButton>
+#include <QMenu>
+#include <QInputDialog>
+#include <QDir>
 #include <flowlayout.h>
 
 #include "buch.h"
@@ -19,6 +22,9 @@ public:
 private:
     std::vector<Buch> *datenbank;
     std::vector<StapelElement*> buecher;
+
+    void showContextMenu(const QPoint &);
+    void neuesBuch();
 };
 
 #endif // STAPEL_H
