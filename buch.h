@@ -34,7 +34,7 @@ public:
     void setNotes(std::string const);
 
     void setEntfernt();
-    const bool entfernt() const;
+    bool entfernt() const;
 
     GENRE stringtogenre(const std::string);
     LANGUAGE stringtolanguage(const std::string);
