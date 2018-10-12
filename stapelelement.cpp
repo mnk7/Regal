@@ -69,16 +69,17 @@ void StapelElement::setzeTitel() {
 }
 
 void StapelElement::setzeIcon() {
+    QPixmap *icon;
     if(buch->getPath().size() > 0){
-        QPixmap icon(QString::fromStdString(buch->getPath()));
+        icon = new QPixmap(QString::fromStdString(buch->getPath()));
     } else {
-        QPixmap icon(":/Bilder/Buch");
+        icon = new QPixmap(":/Bilder/Buch");
     }
 
-    icon = icon.scaled(physicalDpiY() / 2,physicalDpiY() / 2);
+    *icon = icon->scaled(physicalDpiY() / 2,physicalDpiY() / 2);
 
-    knopf->setIcon(icon);
-    knopf->setIconSize(QSize(icon.width(), icon.height()));
+    knopf->setIcon(*icon);
+    knopf->setIconSize(QSize(icon->width(), icon->height()));
 }
 
 
