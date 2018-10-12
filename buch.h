@@ -43,17 +43,17 @@ public:
 
     Buch& operator=(const Buch&);
 private:
-    std::string handle;
-    std::string title;
-    std::string subtitle;
-    std::string author;
-    GENRE genre;
-    unsigned int pagecount;
-    std::string startRead;
-    std::string endRead;
+    std::string handle="";
+    std::string title="";
+    std::string subtitle="";
+    std::string author="";
+    GENRE genre=none;
+    unsigned int pagecount=0;
+    std::string startRead="0000.00.00";
+    std::string endRead="0000.00.00";
     float rating=0;
-    LANGUAGE language;
-    std::string notes;
+    LANGUAGE language=NA;
+    std::string notes="";
     bool deleted=false;
 
 };

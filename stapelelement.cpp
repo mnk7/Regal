@@ -21,6 +21,7 @@ StapelElement::StapelElement(QWidget *parent, Buch &b)
     beschriftung = new QLabel(this);
     setzeTitel();
     beschriftung->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+    beschriftung->setAlignment(Qt::AlignCenter);
     this->layout()->addWidget(beschriftung);
 
     anzeige = new Buchanzeige(nullptr, *buch);

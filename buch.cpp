@@ -1,7 +1,7 @@
 #include "buch.h"
 
 Buch::Buch(std::string h){
-    handle=h; rating=0;
+    handle=h;
 }
 
 Buch::Buch(const Buch &b){
