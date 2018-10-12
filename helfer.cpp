@@ -43,6 +43,8 @@ std::vector<Buch> loadData(const std::string path) {
                 b.setLanguage(b.stringtolanguage(value));
             } else if(label == "notes") {
                 b.setNotes(value);
+            } else if(label == "path"){
+                b.setPath(value);
             }
         } else {
             continue;
@@ -82,4 +84,5 @@ void printBuch(std::ostream &os, const Buch &b) {
     os << "rating=" << b.getRating() << std::endl;
     os << "language=" << b.languagetostring(b.getLanguage()) << std::endl;
     os << "notes=" << b.getNotes() << std::endl << "}" << std::endl;
+    os << "path=" << b.getPath() << std::endl << "}" << std::endl;
 }

@@ -6,7 +6,10 @@ StapelElement::StapelElement(QWidget *parent, Buch &b)
     buch = &b;
     this->setLayout(new QVBoxLayout());
 
-    QPixmap icon(":/Bilder/Buch");
+    if(b.getPath()!=""){
+    QPixmap icon(b.getPath());
+    } else QPixmap icon(":/Bilder/Buch");
+
     icon = icon.scaled(physicalDpiY() / 2,physicalDpiY() / 2);
 
     knopf = new QPushButton(this);
