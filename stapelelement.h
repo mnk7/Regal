@@ -30,6 +30,7 @@ private:
     void update();
     void showContextMenu(const QPoint &);
     void entferne();
+    void setzeTitel();
 };
 
 #endif // STAPELELEMENT_H
