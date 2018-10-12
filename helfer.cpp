@@ -60,7 +60,7 @@ void saveData(const std::string path, const std::vector<Buch> &data) {
 
     for(const Buch& b: data) {
         //deleted books have no handle
-        if(b.getHandle() == "") {
+        if(b.entfernt()) {
             continue;
         }
         printBuch(file, b);
