@@ -37,7 +37,7 @@ public:
     bool entfernt() const;
 
     void setPath(const std::string&);
-    std::string& getPath() const;
+    const std::string &getPath() const;
 
     GENRE stringtogenre(const std::string);
     LANGUAGE stringtolanguage(const std::string);

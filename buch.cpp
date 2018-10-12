@@ -124,7 +124,7 @@ void Buch::setPath(const std::string &p){
     path=p;
 }
 
-std::string& Buch::getPath() const{
+const std::string& Buch::getPath() const{
     return path;
 }
 
