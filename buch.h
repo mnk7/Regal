@@ -33,6 +33,9 @@ public:
     void setLanguage(LANGUAGE const);
     void setNotes(std::string const);
 
+    void setEntfernt();
+    const bool entfernt() const;
+
     GENRE stringtogenre(const std::string);
     LANGUAGE stringtolanguage(const std::string);
     const std::string genretostring(const GENRE&) const;
@@ -51,6 +54,7 @@ private:
     float rating;
     LANGUAGE language;
     std::string notes;
+    bool deleted=false;
 
 };
 

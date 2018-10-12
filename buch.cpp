@@ -16,13 +16,14 @@ Buch::Buch(const Buch &b){
     this->rating=b.getRating();
     this->language=b.getLanguage();
     this->notes=b.getNotes();
+    this->deleted=false;
 }
 
 Buch::Buch(std::string h, std::string t, std::string s, std::string a, GENRE g, unsigned int p, std::string sr, std::string er, float r, LANGUAGE l){
     handle=h; title=t; subtitle=s;author=a; pagecount=p;
     startRead=sr; endRead=er; rating=r;
     genre=g;
-    language=l;
+    language=l; deleted=false;
 }
 
 const std::string Buch::getHandle() const {
@@ -107,6 +108,14 @@ void Buch::setLanguage(const LANGUAGE x){
 
 void Buch::setNotes(const std::string x){
     notes=x;
+}
+
+void Buch::setEntfernt(){
+    deleted=true;
+}
+
+const bool Buch::entfernt() const{
+    return deleted;
 }
 
 Buch::GENRE Buch::stringtogenre(const std::string x){
