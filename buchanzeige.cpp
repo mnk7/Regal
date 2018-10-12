@@ -5,7 +5,9 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
     b = &book;
     outer = new QVBoxLayout(this);
     iconKnopf = new QPushButton(this);
+    iconKnopf->setFlat(true);
     iconKnopf->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    connect(iconKnopf, &QPushButton::clicked, this, &Buchanzeige::chooseIcon);
 
     outer->addWidget(iconKnopf);
     layout = new QGridLayout(this);
@@ -187,14 +189,25 @@ void Buchanzeige::changeNotes(){
 
 
 void Buchanzeige::setzeIcon() {
-    if(book->getPath().size() > 0){
-        QPixmap icon(QString::fromStdString(buch->getPath()));
+    QPixmap *icon;
+    if(b->getPath().size() > 0){
+        icon = new QPixmap(QString::fromStdString(b->getPath()));
     } else {
-        QPixmap icon(":/Bilder/Buch");
+        icon = new QPixmap(":/Bilder/Buch");
     }
 
-    icon = icon.scaled(physicalDpiY() / 2,physicalDpiY() / 2);
+    *icon = icon->scaled(physicalDpiY() / 2,physicalDpiY() / 2);
 
-    knopf->setIcon(icon);
-    knopf->setIconSize(QSize(icon.width(), icon.height()));
+    iconKnopf->setIcon(*icon);
+    iconKnopf->setIconSize(QSize(icon->width(), icon->height()));
+    emit update();
+    emit changed();
+}
+
+void Buchanzeige::chooseIcon(){
+    auto pfad = QFileDialog::getOpenFileName(
+                this, "Lade Icon",
+                QDir::home().absolutePath());
+    b->setPath(pfad.toStdString());
+    setzeIcon();
 }

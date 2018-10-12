@@ -13,6 +13,8 @@
 #include <QDate>
 #include <QtGlobal>
 #include <QVBoxLayout>
+#include <QFileDialog>
+#include <QDir>
 
 class Buchanzeige : public QWidget
 {
@@ -42,7 +44,8 @@ private:
     void changeRating(const QString&);
     void changeLanguage(const int&);
     void changeNotes();
-    void setzteIcon();
+    void setzeIcon();
+    void chooseIcon();
 };
 
 #endif // BUCHANZEIGE_H
