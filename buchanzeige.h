@@ -30,7 +30,7 @@ private:
     Buch *b;
     QPushButton *iconKnopf;
     QVBoxLayout *outer;
-    QGridLayout *layout;
+    QGridLayout *inner;
     QTextEdit *notesIn;
     QDateEdit *startCalendar;
     QDateEdit *endCalendar;
