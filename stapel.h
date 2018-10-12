@@ -17,6 +17,7 @@ public:
     ~Stapel();
 
 private:
+    std::vector<Buch> *datenbank;
     std::vector<StapelElement*> buecher;
 };
 
