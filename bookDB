@@ -8,8 +8,9 @@ startread=2018.01.13
 endread=2018.01.24
 rating=7.5
 language=English
-notes=
-path=:/Bilder/Stapel
+notes=very very bigly
+}
+path=
 }
 aliHeretic{
 title=Heretic
@@ -23,6 +24,8 @@ rating=8.4
 language=English
 notes=
 }
+path=
+}
 hpCursedChild{
 title=Harry Potter and the Cursed Child
 subtitle=
@@ -34,6 +37,8 @@ endread=2018.02.10
 rating=6.6
 language=English
 notes=
+}
+path=
 }
 graylingAAG{
 title=Against All Gods
@@ -47,6 +52,8 @@ rating=8
 language=English
 notes=
 }
+path=
+}
 fantasticBeasts{
 title=Fantastic Beasts and Where to Find Them
 subtitle=The Original Screenplay
@@ -58,6 +65,8 @@ endread=2018.02.17
 rating=6
 language=English
 notes=
+}
+path=
 }
 graylingPrometheus{
 title=To Set Prometheus Free
@@ -71,6 +80,8 @@ rating=8
 language=English
 notes=
 }
+path=
+}
 midnightsChildren{
 title=Midnight's Children
 subtitle=
@@ -82,6 +93,8 @@ endread=2018.03.03
 rating=9
 language=English
 notes=
+}
+path=
 }
 graylingGodArgument{
 title=The God Argument
@@ -95,6 +108,8 @@ rating=9
 language=English
 notes=
 }
+path=
+}
 rushdieShame{
 title=Shame
 subtitle=
@@ -106,6 +121,8 @@ endread=2018.03.12
 rating=10
 language=English
 notes=
+}
+path=
 }
 hitchensMemoir{
 title=Hitch-22
@@ -119,6 +136,8 @@ rating=10
 language=English
 notes=
 }
+path=
+}
 satanicVerses{
 title=The Satanic Verses
 subtitle=
@@ -130,4 +149,6 @@ endread=2018.03.28
 rating=10
 language=English
 notes=
+}
+path=
 }

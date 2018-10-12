@@ -10,7 +10,7 @@ public:
     Buch()=default;
     Buch(std::string h);
     Buch(const Buch &b);
-    Buch(std::string h, std::string t, std::string s, std::string a, GENRE g, unsigned int p, std::string sr, std::string er, float r, LANGUAGE l);
+    Buch(std::string h, std::string t, std::string s, std::string a, GENRE g, unsigned int p, std::string sr, std::string er, float r, LANGUAGE l, std::string pfad);
     const std::string getHandle() const ;
     const std::string getTitle() const;
     const std::string getSubtitle() const;

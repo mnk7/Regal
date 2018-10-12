@@ -16,16 +16,17 @@ Buch::Buch(const Buch &b){
     this->rating=b.getRating();
     this->language=b.getLanguage();
     this->notes=b.getNotes();
+    this->path=b.getPath();
     this->deleted=false;
 }
 
 Buch::Buch(std::string h, std::string t, std::string s,
            std::string a, GENRE g, unsigned int p,
            std::string sr, std::string er,
-           float r, LANGUAGE l){
+           float r, LANGUAGE l, std::string pfad){
     handle=h; title=t; subtitle=s;author=a; pagecount=p;
     startRead=sr; endRead=er; rating=r; genre=g;
-    language=l; deleted=false;
+    language=l; path=pfad; deleted=false;
 }
 
 const std::string Buch::getHandle() const {
