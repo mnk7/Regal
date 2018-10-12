@@ -19,10 +19,12 @@ Buch::Buch(const Buch &b){
     this->deleted=false;
 }
 
-Buch::Buch(std::string h, std::string t, std::string s, std::string a, GENRE g, unsigned int p, std::string sr, std::string er, float r, LANGUAGE l){
+Buch::Buch(std::string h, std::string t, std::string s,
+           std::string a, GENRE g, unsigned int p,
+           std::string sr, std::string er,
+           float r, LANGUAGE l){
     handle=h; title=t; subtitle=s;author=a; pagecount=p;
-    startRead=sr; endRead=er; rating=r;
-    genre=g;
+    startRead=sr; endRead=er; rating=r; genre=g;
     language=l; deleted=false;
 }
 
@@ -114,7 +116,7 @@ void Buch::setEntfernt(){
     deleted=true;
 }
 
-const bool Buch::entfernt() const{
+bool Buch::entfernt() const{
     return deleted;
 }
 
