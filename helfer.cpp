@@ -42,6 +42,10 @@ std::vector<Buch> loadData(const std::string path) {
             } else if(label == "language") {
                 b.setLanguage(b.stringtolanguage(value));
             } else if(label == "notes") {
+                decltype (value.find('\n')) pos;
+                while ((pos = value.find("\\n")) != std::string::npos) {
+                    value.replace(pos, 2, "\n");
+                }
                 b.setNotes(value);
             } else if(label == "path"){
                 b.setPath(value);
@@ -84,5 +88,12 @@ void printBuch(std::ostream &os, const Buch &b) {
     os << "rating=" << b.getRating() << std::endl;
     os << "language=" << b.languagetostring(b.getLanguage()) << std::endl;
     os << "path=" << b.getPath() << std::endl;
-    os << "notes=" << b.getNotes() << std::endl << "}" << std::endl;
+
+    auto string = b.getNotes();
+    decltype (string.find('\n')) pos;
+    while ((pos = string.find('\n')) != std::string::npos) {
+        string.replace(pos, 1, "\\n");
+    }
+    os << "notes=" << string << std::endl
+       << "}" << std::endl;
 }

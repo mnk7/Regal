@@ -57,6 +57,8 @@ Regal::Regal(QWidget *parent)
     this->layout()->addWidget(scroller);
 
     this->resize(this->width(), this->height());
+
+    path = "./regal.default";
 }
 
 Regal::~Regal()
