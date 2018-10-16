@@ -198,7 +198,9 @@ void Buchanzeige::setzeIcon() {
         icon = new QPixmap(":/Bilder/Buch");
     }
 
-    *icon = icon->scaled(physicalDpiY() / 2,physicalDpiY() / 2);
+    *icon = icon->scaled(static_cast<int>(physicalDpiX() * 1.5),
+                         static_cast<int>(physicalDpiY() * 1.5),
+                         Qt::KeepAspectRatio);
 
     iconKnopf->setIcon(*icon);
     iconKnopf->setIconSize(QSize(icon->width(), icon->height()));
@@ -209,7 +211,8 @@ void Buchanzeige::chooseIcon(){
     auto pfad = QFileDialog::getOpenFileName(
                 this, "Lade Icon",
                 QDir::home().absolutePath(),
-                tr("Images (*.png *.PNG *.xpm *.XPM *.jpg *.JPG)"));
+                tr("Images (*.png *.PNG *.xpm *.XPM"
+                   " *.jpg *.JPG *.jpeg *.JPEG)"));
 
     QFileInfo check_file(pfad);
     // check if file exists and if yes: Is it really a file and no directory?

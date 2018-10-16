@@ -77,7 +77,9 @@ void StapelElement::setzeIcon() {
         icon = new QPixmap(":/Bilder/Buch");
     }
 
-    *icon = icon->scaled(physicalDpiY() / 2,physicalDpiY() / 2);
+    *icon = icon->scaled(static_cast<int>(physicalDpiX() * 0.75),
+                         static_cast<int>(physicalDpiY() * 0.75),
+                         Qt::KeepAspectRatio);
 
     knopf->setIcon(*icon);
     knopf->setIconSize(QSize(icon->width(), icon->height()));

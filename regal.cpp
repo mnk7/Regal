@@ -76,7 +76,8 @@ void Regal::createNewHauptstapel() {
 
 void Regal::newDatabase() {
     path = QFileDialog::getSaveFileName(this, "Neue Datenbank",
-                                        QDir::home().absolutePath());
+                                        QDir::home().absolutePath(),
+                                        tr("Text files (*.txt)"));
     if(!datenbank.empty()) {
         datenbank.clear();
         createNewHauptstapel();
@@ -84,9 +85,11 @@ void Regal::newDatabase() {
 }
 
 void Regal::getDatabase() {
-    path = QFileDialog::getOpenFileName(this, "Lade Datenbank",
-                                        QDir::home().absolutePath());
-    if(path.size() > 0) {
+    QString p = QFileDialog::getOpenFileName(this, "Lade Datenbank",
+                                        QDir::home().absolutePath(),
+                                        tr("Text files (*.txt)"));
+    if(p.size() > 0) {
+        path = p;
         datenbank = loadData(path.toStdString());
         createNewHauptstapel();
     }
