@@ -89,6 +89,11 @@ Buchanzeige::Buchanzeige(QWidget *parent, Buch& book) : QWidget(parent)
             selector->addItem("Biographie");
             selector->addItem("keines");
             selector->setCurrentIndex(b->getGenre());
+            /**
+             * QOverload lets us choose the parameter of currentIndexChanged.
+             * This signal is overloaded and can send either the new index
+             * or the text on the label.
+             */
             connect(selector,QOverload<int>::of(&QComboBox::currentIndexChanged),this,&Buchanzeige::changeGenre);
             inner->addWidget(selector,i/2,i%2);
             break;

@@ -49,10 +49,10 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-    datenbank \
     Buch.png \
     Stapel.png \
-    bookDB
+    datenbank.txt \
+    testDB.txt
 
 RESOURCES += \
     images.qrc

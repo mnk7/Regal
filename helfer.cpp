@@ -36,6 +36,7 @@ std::vector<Buch> loadData(const std::string path) {
             } else if(label == "endread") {
                 b.setEnd(value);
             } else if(label == "rating") {
+                //for correct reading of floating point numbers
                 std::setlocale(LC_NUMERIC,"en_US.UTF-8");
                 b.setRating(static_cast<float>(std::stof(value)));
                 std::setlocale(LC_NUMERIC,"de_DE.UTF-8");
@@ -65,7 +66,6 @@ void saveData(const std::string path, const std::vector<Buch> &data) {
     file.open(path, std::ios::trunc);
 
     for(const Buch& b: data) {
-        //deleted books have no handle
         if(b.entfernt()) {
             continue;
         }

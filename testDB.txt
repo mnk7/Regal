@@ -431,11 +431,11 @@ deutscheId2{
 title=Die deutsche Ideologie
 subtitle=Band II
 author=Karl Marx, Friedrich Engels
-genre=Philosophy
+genre=Politics
 pagecount=0
 startread=2018.08.05
 endread=2018.08.06
-rating=7
+rating=7.9
 language=German
 path=
 notes=
